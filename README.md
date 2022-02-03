@@ -1,6 +1,8 @@
 # Software Engineering Methods
-![workflow](https://github.com/Stefan-Humpelstetter/sem/actions/workflows/main.yml/badge.svg)
+- Master Build Status ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Stefan-Humpelstetter/sem/Sem/master?style=flat-square)
 
-[![LICENSE](https://img.shields.io/github/license/Stefan-Humpelstetter/sem.svg?style=flat-square)](https://github.com/Stefan-Humpelstetter/sem/blob/master/LICENSE)
+- Develop Build Status ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Stefan-Humpelstetter/sem/Sem/develop?style=flat-square)
 
-[![Releases](https://img.shields.io/github/release/Stefan-Humpelstetter/sem/all.svg?style=flat-square)](https://github.com/Stefan-Humpelstetter/sem/releases)
+- Licence [![LICENSE](https://img.shields.io/github/license/Stefan-Humpelstetter/sem.svg?style=flat-square)](https://github.com/Stefan-Humpelstetter/sem/blob/master/LICENSE)
+
+- Release [![Releases](https://img.shields.io/github/release/Stefan-Humpelstetter/sem/all.svg?style=flat-square)](https://github.com/Stefan-Humpelstetter/sem/releases)
