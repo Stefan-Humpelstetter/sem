@@ -4,18 +4,18 @@ We, as students and team members, pledge to actively participate in our project,
 
 **Our Standards**
 
-Examples of behavior that contributes to a positive environment for our community include:
-Being empathic and kind towards other team members
-Being respectful of differing opinions, viewpoints, and experiences
-Being able to gracefully accept constructive feedback and give such one
-Being able to accept responsibility and apologizing to those affected by any mistakes made, and learning from the experience
-Focusing on what is best not just for us as individuals, but for the team as well
-Examples of unacceptable behavior include:
-The use of sexualized language or imagery, and sexual attention or advances of any kind
-Derogatory or offending comments
-Any kind of harassment
-Publishing others’ private information, without their permission
-Other conduct is considered inappropriate in a professional setting
+Examples of behavior that contributes to a positive environment for our community include:  
+Being empathic and kind towards other team members  
+Being respectful of differing opinions, viewpoints, and experiences  
+Being able to gracefully accept constructive feedback and give such one  
+Being able to accept responsibility and apologizing to those affected by any mistakes made, and learning from the experience  
+Focusing on what is best not just for us as individuals, but for the team as well  
+Examples of unacceptable behavior include:  
+The use of sexualized language or imagery, and sexual attention or advances of any kind  
+Derogatory or offending comments  
+Any kind of harassment  
+Publishing others’ private information, without their permission  
+Other conduct is considered inappropriate in a professional setting  
 
 **Enforcement Responsibilities**
 
