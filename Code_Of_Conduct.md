@@ -1,8 +1,8 @@
-Our Pledge
+**Our Pledge**
 
 We, as students and team members, pledge to actively participate in our project, guaranteeing a harassment-free experience for everyone. We pledge to act and interact in ways that contribute to an open, welcoming, friendly and healthy environment.
 
-Our Standards
+**Our Standards**
 
 Examples of behavior that contributes to a positive environment for our community include:
 Being empathic and kind towards other team members
@@ -17,7 +17,7 @@ Any kind of harassment
 Publishing others’ private information, without their permission
 Other conduct is considered inappropriate in a professional setting
 
-Enforcement Responsibilities
+**Enforcement Responsibilities**
 
 Members of the team have the responsibilities to clarify and enforce our standards of acceptable behavior towards each other and will take appropriate and fair disciplinary action in response to any behavior that they deem inappropriate in any way.
 Team members are responsible and have the right to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct, and will communicate reasons for moderation decisions when appropriate.
