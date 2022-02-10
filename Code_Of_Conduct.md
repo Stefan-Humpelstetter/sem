@@ -1,8 +1,9 @@
+## Our Pledge
 
-##Our Pledge
 As students and team members, we pledge to actively participate in our project, guaranteeing a harassment-free experience for everyone. Furthermore, we pledge to act and interact in ways that contribute to an open, welcoming, friendly and healthy environment.
 ___
-##Our Standards
+## Our Standards
+
 We will pursue behaviour that contributes to maintaining a positive
 environment for our community that would include:
 - Being empathic and kind towards other team members
@@ -18,7 +19,7 @@ advances of any kind
 - Any harassment
 - Publishing other's private information without their permission
 Other conduct considered inappropriate in a professional setting
-
+___
 ## Enforcement Responsibilities
 
 Members of the team are responsible for clarifying and enforcing our
