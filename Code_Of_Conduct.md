@@ -1,10 +1,8 @@
 
 ##Our Pledge
-___
 As students and team members, we pledge to actively participate in our project, guaranteeing a harassment-free experience for everyone. Furthermore, we pledge to act and interact in ways that contribute to an open, welcoming, friendly and healthy environment.
-
-##Our Standards
 ___
+##Our Standards
 We will pursue behaviour that contributes to maintaining a positive
 environment for our community that would include:
 - Being empathic and kind towards other team members
@@ -22,7 +20,6 @@ advances of any kind
 Other conduct considered inappropriate in a professional setting
 
 ## Enforcement Responsibilities
-___
 
 Members of the team are responsible for clarifying and enforcing our
 standards of acceptable behaviour towards each other. We will take
@@ -32,9 +29,9 @@ responsible and have the right to manage code, commits, comments, wiki
 edits, issues, and other contributions that are not aligned to this
 Code of Conduct and will communicate reasons for moderation decisions
 when appropriate.
-
-## Scope
 ___
+## Scope
+
 This Code of Conduct applies within all working spaces and applies
 when an individual is officially representing the group in working
 spaces. Examples of representing our group include
@@ -42,9 +39,9 @@ spaces. Examples of representing our group include
 using a group signature in the email address,
 posting in a shared GitHub repository
 acting as an appointed representative at an online or offline event
-
-## Enforcement
 ___
+## Enforcement
+
 All complaints will be reviewed and investigated promptly and fairly.
 Group members will follow this Code of Conduct in deciding the
 consequences for any action they deem in violation of this Code of
@@ -62,6 +59,8 @@ member of the module delivery team.
 - The module delivery team has the right to decide if the dismissal is warranted.
 - Any dismissed group member has a week to appeal the decision to the
 module team with relevant evidence provided.
-## Sources
 ___
+## Sources
+
 Based on https://www.contributor-covenant.org/version/2/1/code_of_conduct/.
+___
