@@ -81,6 +81,11 @@ public class App
         }
     }
 
+    /**
+     * Return an employee
+     * @param ID
+     * @return Employee
+     */
     public Employee getEmployee(int ID)
     {
         try
