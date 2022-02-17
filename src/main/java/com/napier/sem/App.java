@@ -9,6 +9,10 @@ public class App
      */
     private Connection con = null;
 
+    /**
+     * entry point of the program
+     * @param args input arguments
+     */
     public static void main(String[] args)
     {
         // Create new Application
