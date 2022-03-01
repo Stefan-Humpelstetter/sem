@@ -28,7 +28,11 @@ public class App
 
         //CountryReport countryReport = new CountryReport(a.con);
         PopulationReport populationReport = new PopulationReport(a.con);
+
+        System.out.println("Population of North America:");
         System.out.println(populationReport.getPopulationOfContinent(Continent.North_America));
+        System.out.println();
+
 
         // Disconnect from database
         a.disconnect();
