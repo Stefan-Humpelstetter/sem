@@ -12,11 +12,19 @@ import java.sql.Statement;
  */
 public class PopulationReport extends AReport{
 
-
+    /**
+     * constructor needs connection to the database
+     * @param connection to the database
+     */
     public PopulationReport(Connection connection) {
         super(connection);
     }
 
+    /**
+     * Returns population of given continent
+     * @param continent
+     * @return population of the given continent
+     */
     public Integer getPopulationOfContinent(Continent continent){
         try
         {

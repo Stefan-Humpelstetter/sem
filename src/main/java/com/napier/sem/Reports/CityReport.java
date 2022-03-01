@@ -55,7 +55,12 @@ public class CityReport extends AReport {
         }
     }
 
-
+    /**
+     * Queries for n biggest cities in the given region
+     * @param region
+     * @param n states how many cities should be returned
+     * @return list of n cities with the most population in the given region
+     */
     public ArrayList<String> getTopPopulatedCapitalCities(String region, int n) {
         try {
             // Create an SQL statement

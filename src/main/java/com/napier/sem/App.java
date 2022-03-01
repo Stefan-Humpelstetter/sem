@@ -39,19 +39,18 @@ public class App
 
         // Print total population of a district
         System.out.println("Population of the district Kabol:");
-        System.out.println(populationReport.getDistrictTotalPopulation());
+        System.out.println(populationReport.getDistrictTotalPopulation("Kabol"));
         System.out.println();
 
         // print most populated capital of region 'Eastern Africa'
         System.out.println("Most populated capital cities of the region 'Eastern Africa'");
         System.out.println(cityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
         System.out.println();
-        System.out.println(populationReport.getDistrictTotalPopulation("Kabol"));
 
-        //Print top n populated capital cities
-        for (String name : cityReport.getTopPopulatedCapitalCities(3)){
-            System.out.println(name);
-        }
+        // print most populated capital of region 'Eastern Africa'
+        System.out.println("5 Most populated capital cities");
+        System.out.println(cityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
+        System.out.println();
 
         // Disconnect from database
         a.disconnect();
