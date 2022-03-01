@@ -14,13 +14,13 @@ public class City extends AModel {
 
     @Override
     protected void construct() throws SQLException {
-        if (rset.next())
-        {
-            this.id = rset.getInt("id");
-            this.countryCode = rset.getString("countrycode");
-            this.district = rset.getString("district");
-            this.population = rset.getInt("population");
-        }
+        if (rset.isBeforeFirst())
+            rset.next();
+
+        this.id = rset.getInt("id");
+        this.countryCode = rset.getString("countrycode");
+        this.district = rset.getString("district");
+        this.population = rset.getInt("population");
     }
 
     /**
