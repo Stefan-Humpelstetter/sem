@@ -29,16 +29,15 @@ public class App
 
         // Create report
         CountryReport countryReport = new CountryReport(a.con);
-        PopulationReport populationReport = new PopulationReport(a.con);
         CityReport cityReport = new CityReport(a.con);
+        PopulationReport populationReport = new PopulationReport(a.con);
 
-        // Print total population of a continent
-        System.out.println("\nPopulation of North America:");
+        // print population of North America
+        System.out.println("Population of North America:");
         System.out.println(populationReport.getPopulationOfContinent(Continent.North_America));
-        System.out.println();
 
         // Print total population of a district
-        System.out.println("Population of the district Kabol:");
+        System.out.println("\nPopulation of the district Kabol:");
         System.out.println(populationReport.getDistrictTotalPopulation("Kabol"));
 
         // Print top n populated capital cities
@@ -46,10 +45,13 @@ public class App
         for (String name : cityReport.getTopPopulatedCapitalCities(3)){
             System.out.println(name);
         }
+        // print most populated capital of region 'Eastern Africa'
+        System.out.println("\nMost populated capital cities of the region 'Eastern Africa'");
+        System.out.println(cityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
 
-        // Print total population of a country
-        System.out.println("\nPopulation of Italy:");
-        System.out.println(populationReport.getTotalPopulationCountry("Italy"));
+        // print most populated capital of region 'Eastern Africa'
+        System.out.println("\n5 Most populated capital cities");
+        System.out.println(cityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
 
         // Disconnect from database
         a.disconnect();
