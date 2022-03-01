@@ -7,7 +7,12 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * this class contains methods to create reports for populations
+ */
 public class PopulationReport extends AReport{
+
+
     public PopulationReport(Connection connection) {
         super(connection);
     }
