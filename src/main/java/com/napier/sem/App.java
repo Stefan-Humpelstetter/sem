@@ -31,19 +31,23 @@ public class App
         PopulationReport populationReport = new PopulationReport(a.con);
         CityReport cityReport = new CityReport(a.con);
 
-        System.out.println("Population of North America:");
+        System.out.println("\nPopulation of North America:");
         System.out.println(populationReport.getPopulationOfContinent(Continent.North_America));
         System.out.println();
 
         // Print total population of a district
         System.out.println("Population of the district Kabol:");
-        System.out.println(populationReport.getDistrictTotalPopulation());
         System.out.println(populationReport.getDistrictTotalPopulation("Kabol"));
 
-        //Print top n populated capital cities
+        // Print top n populated capital cities
+        System.out.println("\nTop 3 populated capitals:");
         for (String name : cityReport.getTopPopulatedCapitalCities(3)){
             System.out.println(name);
         }
+
+        // Print country population
+        System.out.println("\nPopulation of Italy:");
+        System.out.println(populationReport.getTotalPopulationCountry("Italy"));
 
         // Disconnect from database
         a.disconnect();
