@@ -45,7 +45,12 @@ public class App
         for (String name : cityReport.getTopPopulatedCapitalCities(3)){
             System.out.println(name);
         }
-        // print most populated capital of region 'Eastern Africa'
+
+        // Print total country population
+        System.out.println("\nTotal population of Italy:");
+        System.out.println(populationReport.getTotalPopulationCountry("Italy"));
+
+        // Print most populated capital of region 'Eastern Africa'
         System.out.println("\nMost populated capital cities of the region 'Eastern Africa'");
         System.out.println(cityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
 
