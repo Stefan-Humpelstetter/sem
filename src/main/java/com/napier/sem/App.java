@@ -24,7 +24,7 @@ public class App
         // Connect to database
         a.connect();
 
-        CountryReport countryReport = new CountryReport(a.con);
+        //CountryReport countryReport = new CountryReport(a.con);
 
         System.out.println(a.getCity(1).district);
 
