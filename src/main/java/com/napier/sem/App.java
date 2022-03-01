@@ -34,6 +34,7 @@ public class App
         System.out.println();
 
         // Print total population of a district
+        System.out.println("Population of the district Kabol:");
         System.out.println(populationReport.getDistrictTotalPopulation());
 
         // Disconnect from database
