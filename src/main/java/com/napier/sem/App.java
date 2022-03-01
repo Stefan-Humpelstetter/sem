@@ -1,6 +1,7 @@
 package com.napier.sem;
 
 import com.napier.sem.Models.City;
+import com.napier.sem.Reports.CityReport;
 import com.napier.sem.Reports.CountryReport;
 import com.napier.sem.Reports.PopulationReport;
 
@@ -27,9 +28,15 @@ public class App
 
         CountryReport countryReport = new CountryReport(a.con);
         PopulationReport populationReport = new PopulationReport(a.con);
+        CityReport cityReport = new CityReport(a.con);
 
         // Print total population of a district
         System.out.println(populationReport.getDistrictTotalPopulation());
+
+        //Print top n populated capital cities
+        for (String name : cityReport.getTopPopulatedCapitalCities(3)){
+            System.out.println(name);
+        }
 
         // Disconnect from database
         a.disconnect();
