@@ -2,6 +2,7 @@ package com.napier.sem;
 
 import com.napier.sem.Models.City;
 import com.napier.sem.Reports.CountryReport;
+import com.napier.sem.Reports.PopulationReport;
 
 import java.sql.*;
 
@@ -24,9 +25,11 @@ public class App
         // Connect to database
         a.connect();
 
-        //CountryReport countryReport = new CountryReport(a.con);
+        CountryReport countryReport = new CountryReport(a.con);
+        PopulationReport populationReport = new PopulationReport(a.con);
 
-        System.out.println(a.getCity(1).district);
+        // Print total population of a district
+        System.out.println(populationReport.getDistrictTotalPopulation());
 
         // Disconnect from database
         a.disconnect();
