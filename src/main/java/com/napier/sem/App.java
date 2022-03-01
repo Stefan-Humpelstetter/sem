@@ -2,6 +2,7 @@ package com.napier.sem;
 
 import com.napier.sem.Models.City;
 import com.napier.sem.Models.Continent;
+import com.napier.sem.Reports.CityReport;
 import com.napier.sem.Reports.CountryReport;
 import com.napier.sem.Reports.PopulationReport;
 
@@ -28,6 +29,7 @@ public class App
 
         CountryReport countryReport = new CountryReport(a.con);
         PopulationReport populationReport = new PopulationReport(a.con);
+        CityReport cityReport = new CityReport(a.con);
 
         System.out.println("Population of North America:");
         System.out.println(populationReport.getPopulationOfContinent(Continent.North_America));
@@ -36,6 +38,12 @@ public class App
         // Print total population of a district
         System.out.println("Population of the district Kabol:");
         System.out.println(populationReport.getDistrictTotalPopulation());
+        System.out.println(populationReport.getDistrictTotalPopulation("Kabol"));
+
+        //Print top n populated capital cities
+        for (String name : cityReport.getTopPopulatedCapitalCities(3)){
+            System.out.println(name);
+        }
 
         // Disconnect from database
         a.disconnect();
