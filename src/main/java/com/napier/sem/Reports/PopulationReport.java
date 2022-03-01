@@ -79,4 +79,9 @@ public class PopulationReport extends AReport{
             return null;
         }
     }
+
+
+    public void printPopulationReportForPeopleLivingInCitiesByContinent(){
+
+    }
 }
