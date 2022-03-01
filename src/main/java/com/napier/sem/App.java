@@ -27,10 +27,12 @@ public class App
         // Connect to database
         a.connect();
 
+        // Create report
         CountryReport countryReport = new CountryReport(a.con);
         PopulationReport populationReport = new PopulationReport(a.con);
         CityReport cityReport = new CityReport(a.con);
 
+        // Print total population of a continent
         System.out.println("\nPopulation of North America:");
         System.out.println(populationReport.getPopulationOfContinent(Continent.North_America));
         System.out.println();
@@ -45,7 +47,7 @@ public class App
             System.out.println(name);
         }
 
-        // Print country population
+        // Print total population of a country
         System.out.println("\nPopulation of Italy:");
         System.out.println(populationReport.getTotalPopulationCountry("Italy"));
 
