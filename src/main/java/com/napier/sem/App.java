@@ -1,9 +1,9 @@
 package com.napier.sem;
 
+import com.napier.sem.Models.City;
 import com.napier.sem.Reports.CountryReport;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 public class App
 {
@@ -24,7 +24,7 @@ public class App
         // Connect to database
         a.connect();
 
-        CountryReport countryReport = new CountryReport(a.con);
+        //CountryReport countryReport = new CountryReport(a.con);
 
         System.out.println(a.getCity(1).district);
 
@@ -114,19 +114,8 @@ public class App
                             + "WHERE id = " + ID;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Return new city if valid.
-            // Check one is returned
-            if (rset.next())
-            {
-                City city = new City();
-                city.id = rset.getInt("id");
-                city.countryCode = rset.getString("countrycode");
-                city.district = rset.getString("district");
-                city.population = rset.getInt("population");
-                return city;
-            }
-            else
-                return null;
+            City city = new City(rset);
+            return city;
         }
         catch (Exception e)
         {

@@ -1,6 +1,20 @@
-package com.napier.sem;
+package com.napier.sem.Models;
 
-public class Country {
+import com.napier.sem.Continent;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Country extends AModel {
+
+    public Country(ResultSet rset) throws SQLException {
+        super(rset);
+    }
+
+    @Override
+    protected void construct() {
+
+    }
 
     public String code;
 
@@ -31,5 +45,4 @@ public class Country {
     public String capital;
 
     public String code2;
-
 }
