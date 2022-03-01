@@ -31,7 +31,7 @@ public class App
         CityReport cityReport = new CityReport(a.con);
 
         // Print total population of a district
-        System.out.println(populationReport.getDistrictTotalPopulation());
+        System.out.println(populationReport.getDistrictTotalPopulation("Kabol"));
 
         //Print top n populated capital cities
         for (String name : cityReport.getTopPopulatedCapitalCities(3)){

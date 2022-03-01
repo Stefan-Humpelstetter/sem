@@ -12,6 +12,11 @@ public class CityReport extends AReport{
         super(connection);
     }
 
+    /**
+     * Returns the n top populated capital cities
+     * @param n
+     * @return cities
+     */
     public ArrayList<String> getTopPopulatedCapitalCities (int n){
         try
         {

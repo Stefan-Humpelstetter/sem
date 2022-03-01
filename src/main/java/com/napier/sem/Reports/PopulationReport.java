@@ -19,7 +19,7 @@ public class PopulationReport extends AReport{
      * Returns the total population of a district
      * @return population
      */
-    public Integer getDistrictTotalPopulation()
+    public Integer getDistrictTotalPopulation(String district)
     {
         try
         {
@@ -29,7 +29,7 @@ public class PopulationReport extends AReport{
             String strSelect =
                     "SELECT SUM(Population) AS 'District Total Population'"
                             + "FROM city "
-                            + "WHERE District = 'Kabol' ";
+                            + "WHERE District = '" + district + "' ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract employee information
