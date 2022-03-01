@@ -1,5 +1,7 @@
 package com.napier.sem;
 
+import com.napier.sem.Reports.CountryReport;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -22,10 +24,8 @@ public class App
         // Connect to database
         a.connect();
 
-        // Extract employee salary information
-        // ArrayList<Employee> employees = a.getAllSalaries();
-        // ArrayList<Employee> engineers = a.getSalaryByRole("Engineer");
-        // a.printSalaries(engineers);
+        CountryReport countryReport = new CountryReport(a.con);
+
         System.out.println(a.getCity(1).district);
 
         // Disconnect from database
