@@ -1,7 +1,5 @@
 package com.napier.sem.Reports;
 
-import com.napier.sem.Models.City;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -10,13 +8,13 @@ import java.util.ArrayList;
 /**
  * this class contains methods to create reports for cities
  */
-public class CityReport extends AReport {
+public class CapitalCityReport extends AReport {
 
     /**
      * constructor needs connection to the database
      * @param connection to the database
      */
-    public CityReport(Connection connection) {
+    public CapitalCityReport(Connection connection) {
         super(connection);
     }
 
