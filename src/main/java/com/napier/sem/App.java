@@ -2,7 +2,7 @@ package com.napier.sem;
 
 import com.napier.sem.Models.City;
 import com.napier.sem.Models.Continent;
-import com.napier.sem.Reports.CityReport;
+import com.napier.sem.Reports.CapitalCityReport;
 import com.napier.sem.Reports.CountryReport;
 import com.napier.sem.Reports.PopulationReport;
 
@@ -29,7 +29,7 @@ public class App
 
         // Create report
         CountryReport countryReport = new CountryReport(a.con);
-        CityReport cityReport = new CityReport(a.con);
+        CapitalCityReport cityReport = new CapitalCityReport(a.con);
         PopulationReport populationReport = new PopulationReport(a.con);
 
         // print population of North America
