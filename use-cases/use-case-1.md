@@ -1,10 +1,10 @@
-# USE CASE 15: Produce a report of all the cities in the world organised by largest population to smallest.
+# USE CASE 1: Produce reports about countries.
 
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As a *member of the organisation* I want to produce reports about countries so that I can have a better overview of our data.
+As a *member of the organisation* I want *to produce reports about countries* so that *I can have a better overview of our data*.
 
 ### Scope
 
