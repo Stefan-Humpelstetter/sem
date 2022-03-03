@@ -86,7 +86,7 @@ public class CityReport extends AReport {
             return cities;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
+            System.out.println("Failed to get the n top populated countries");
             return null;
         }
     }
