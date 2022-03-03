@@ -6,7 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- * this class contains methods to create reports for cities
+ * this class contains methods to create reports for capital cities
  */
 public class CapitalCityReport extends AReport {
 

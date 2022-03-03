@@ -2,9 +2,7 @@ package com.napier.sem;
 
 import com.napier.sem.Models.City;
 import com.napier.sem.Models.Continent;
-import com.napier.sem.Reports.CapitalCityReport;
-import com.napier.sem.Reports.CountryReport;
-import com.napier.sem.Reports.PopulationReport;
+import com.napier.sem.Reports.*;
 
 import java.sql.*;
 
@@ -29,10 +27,12 @@ public class App
 
         // Create report
         CountryReport countryReport = new CountryReport(a.con);
-        CapitalCityReport cityReport = new CapitalCityReport(a.con);
+        CapitalCityReport capitalCityReport = new CapitalCityReport(a.con);
         PopulationReport populationReport = new PopulationReport(a.con);
+        CityReport cityReport = new CityReport(a.con);
+        LanguageReport languageReport = new LanguageReport(a.con);
 
-        // print population of North America
+        // Print population of North America
         System.out.println("Population of North America:");
         System.out.println(populationReport.getPopulationOfContinent(Continent.North_America));
 
@@ -42,7 +42,7 @@ public class App
 
         // Print top n populated capital cities
         System.out.println("\nTop 3 populated capitals:");
-        for (String name : cityReport.getTopPopulatedCapitalCities(3)){
+        for (String name : capitalCityReport.getTopPopulatedCapitalCities(3)){
             System.out.println(name);
         }
 
@@ -52,11 +52,11 @@ public class App
 
         // Print most populated capital of region 'Eastern Africa'
         System.out.println("\nMost populated capital cities of the region 'Eastern Africa'");
-        System.out.println(cityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
+        System.out.println(capitalCityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
 
-        // print most populated capital of region 'Eastern Africa'
+        // Print most populated capital of region 'Eastern Africa'
         System.out.println("\n5 Most populated capital cities");
-        System.out.println(cityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
+        System.out.println(capitalCityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
 
         // Disconnect from database
         a.disconnect();
