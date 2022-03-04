@@ -1,10 +1,11 @@
 package com.napier.sem;
 
-import com.napier.sem.Models.City;
 import com.napier.sem.Models.Continent;
 import com.napier.sem.Reports.*;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class App
 {
@@ -57,6 +58,11 @@ public class App
         // Print most populated capital of region 'Eastern Africa'
         System.out.println("\n5 Most populated capital cities");
         System.out.println(capitalCityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
+
+        // Print poulation of City based on the cityName(String)
+        System.out.println();
+        System.out.println("Population of Edinburgh: " + populationReport.getPopulationOfCity("Edinburgh"));
+        System.out.println("Population of London: " + populationReport.getPopulationOfCity("London"));
 
         // Disconnect from database
         a.disconnect();
@@ -127,6 +133,7 @@ public class App
      * @param ID
      * @return City
      */
+    /*
     public City getCity(int ID)
     {
         try
@@ -154,7 +161,7 @@ public class App
             return null;
         }
     }
-
+*/
     /**
      * Prints a list of employees.
      * @param employees The list of employees to print.
