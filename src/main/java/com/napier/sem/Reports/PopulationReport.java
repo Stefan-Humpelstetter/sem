@@ -20,6 +20,31 @@ public class PopulationReport extends AReport{
     }
 
     /**
+     * Returns population of given city
+     * @return population of the given city
+     */
+
+    public Long getWorldPopulation(){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT sum(population) as 'population' FROM country";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if (rset.next()) return rset.getLong("population");
+            return null;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get World details");
+            return null;
+        }
+    }
+
+    /**
      * Returns population of given continent
      * @param continent
      * @return population of the given continent

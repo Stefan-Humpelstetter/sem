@@ -64,6 +64,10 @@ public class App
         System.out.println("Population of Edinburgh: " + populationReport.getPopulationOfCity("Edinburgh"));
         System.out.println("Population of London: " + populationReport.getPopulationOfCity("London"));
 
+        // Print population of the world based on sum population of all the countries
+        System.out.println();
+        System.out.println("Total world population: " + populationReport.getWorldPopulation());
+
         // Disconnect from database
         a.disconnect();
     }
