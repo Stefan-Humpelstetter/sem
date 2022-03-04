@@ -72,6 +72,32 @@ public class PopulationReport extends AReport{
     }
 
     /**
+     * Returns population of given Region
+     * @param regionName Uses name of the Region
+     * @return population of the given Region
+     */
+
+    public Integer getPopulationOfRegion(String regionName){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT SUM(Population) AS population FROM country WHERE Region = '" + regionName + "'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if (rset.next()) return rset.getInt("population");
+            return null;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get region details");
+            return null;
+        }
+    }
+
+    /**
      * Returns population of given city
      * @param cityName Uses name of the City
      * @return population of the given city

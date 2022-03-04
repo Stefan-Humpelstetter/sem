@@ -68,6 +68,11 @@ public class App
         System.out.println();
         System.out.println("Total world population: " + populationReport.getWorldPopulation());
 
+        // Print sum population of the region based on the regionName(String)
+        System.out.println();
+        System.out.println("Population of Caribbean region: " + populationReport.getPopulationOfRegion("Caribbean"));
+        System.out.println("Population of Polynesia region: " + populationReport.getPopulationOfRegion("Polynesia"));
+
         // Disconnect from database
         a.disconnect();
     }
