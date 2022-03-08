@@ -1,6 +1,5 @@
 package com.napier.sem.Reports;
 
-import com.napier.sem.Models.City;
 import com.napier.sem.Models.Continent;
 
 import java.sql.Connection;
@@ -21,6 +20,31 @@ public class PopulationReport extends AReport{
     }
 
     /**
+     * Returns population of given city
+     * @return population of the given city
+     */
+
+    public Long getWorldPopulation(){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT sum(population) as 'population' FROM country";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if (rset.next()) return rset.getLong("population");
+            return null;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get World details");
+            return null;
+        }
+    }
+
+    /**
      * Returns population of given continent
      * @param continent
      * @return population of the given continent
@@ -37,6 +61,58 @@ public class PopulationReport extends AReport{
             ResultSet rset = stmt.executeQuery(strSelect);
             if (rset.next())
                 return rset.getInt("population");
+            return null;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
+        }
+    }
+
+    /**
+     * Returns population of given Region
+     * @param regionName Uses name of the Region
+     * @return population of the given Region
+     */
+
+    public Integer getPopulationOfRegion(String regionName){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT SUM(Population) AS population FROM country WHERE Region = '" + regionName + "'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if (rset.next()) return rset.getInt("population");
+            return null;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get region details");
+            return null;
+        }
+    }
+
+    /**
+     * Returns population of given city
+     * @param cityName Uses name of the City
+     * @return population of the given city
+     */
+
+    public Integer getPopulationOfCity(String cityName){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+            // Create string for SQL statement
+            String strSelect = "SELECT population FROM city WHERE Name = '" + cityName + "'";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            if (rset.next()) return rset.getInt("population");
             return null;
         }
         catch (Exception e)
@@ -83,5 +159,38 @@ public class PopulationReport extends AReport{
 
     public void printPopulationReportForPeopleLivingInCitiesByContinent(){
 
+    }
+
+    /**
+     * Returns the total population of a country
+     * @param country
+     * @return population
+     */
+    public Integer getTotalPopulationCountry(String country)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                      "SELECT Population "
+                              + "FROM country "
+                              + "WHERE Name = '" + country + "' ";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract employee information
+            Integer population = 0;
+            if (rset.next()){
+                population = rset.getInt("Population");
+            }
+            return population;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get the country total population");
+            return null;
+        }
     }
 }

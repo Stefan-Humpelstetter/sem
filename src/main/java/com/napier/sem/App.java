@@ -1,12 +1,11 @@
 package com.napier.sem;
 
-import com.napier.sem.Models.City;
 import com.napier.sem.Models.Continent;
-import com.napier.sem.Reports.CityReport;
-import com.napier.sem.Reports.CountryReport;
-import com.napier.sem.Reports.PopulationReport;
+import com.napier.sem.Reports.*;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class App
 {
@@ -27,30 +26,52 @@ public class App
         // Connect to database
         a.connect();
 
+        // Create report
         CountryReport countryReport = new CountryReport(a.con);
-        CityReport cityReport = new CityReport(a.con);
+        CapitalCityReport capitalCityReport = new CapitalCityReport(a.con);
         PopulationReport populationReport = new PopulationReport(a.con);
+        CityReport cityReport = new CityReport(a.con);
+        LanguageReport languageReport = new LanguageReport(a.con);
 
-
-        // print population of North America
-        System.out.println("Population of North America:");
+        // Print population of North America
+        System.out.println("Population of "+Continent.North_America+" :");
         System.out.println(populationReport.getPopulationOfContinent(Continent.North_America));
-        System.out.println();
 
         // Print total population of a district
-        System.out.println("Population of the district Kabol:");
+        System.out.println("\nPopulation of the district Kabol:");
         System.out.println(populationReport.getDistrictTotalPopulation("Kabol"));
-        System.out.println();
 
-        // print most populated capital of region 'Eastern Africa'
-        System.out.println("Most populated capital cities of the region 'Eastern Africa'");
-        System.out.println(cityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
-        System.out.println();
+        // Print top n populated capital cities
+        System.out.println("\nTop 3 populated capitals:");
+        for (String name : capitalCityReport.getTopPopulatedCapitalCities(3)){
+            System.out.println(name);
+        }
 
-        // print most populated capital of region 'Eastern Africa'
-        System.out.println("5 Most populated capital cities");
-        System.out.println(cityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
+        // Print total country population
+        System.out.println("\nTotal population of Italy:");
+        System.out.println(populationReport.getTotalPopulationCountry("Italy"));
+
+        // Print most populated capital of region 'Eastern Africa'
+        System.out.println("\nMost populated capital cities of the region 'Eastern Africa'");
+        System.out.println(capitalCityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
+
+        // Print most populated capital of region 'Eastern Africa'
+        System.out.println("\n5 Most populated capital cities");
+        System.out.println(capitalCityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
+
+        // Print poulation of City based on the cityName(String)
         System.out.println();
+        System.out.println("Population of Edinburgh: " + populationReport.getPopulationOfCity("Edinburgh"));
+        System.out.println("Population of London: " + populationReport.getPopulationOfCity("London"));
+
+        // Print population of the world based on sum population of all the countries
+        System.out.println();
+        System.out.println("Total world population: " + populationReport.getWorldPopulation());
+
+        // Print sum population of the region based on the regionName(String)
+        System.out.println();
+        System.out.println("Population of Caribbean region: " + populationReport.getPopulationOfRegion("Caribbean"));
+        System.out.println("Population of Polynesia region: " + populationReport.getPopulationOfRegion("Polynesia"));
 
         // Disconnect from database
         a.disconnect();
@@ -115,5 +136,158 @@ public class App
             }
         }
     }
+
+    /**
+     * Return an employee
+     * @param ID
+     * @return City
+     */
+    /*
+    public City getCity(int ID)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT id, " +
+                            "name, " +
+                            "countrycode," +
+                            "district," +
+                            "population "
+                            + "FROM city "
+                            + "WHERE id = " + ID;
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            City city = new City(rset);
+            return city;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get city details");
+            return null;
+        }
+    }
+*/
+    /**
+     * Prints a list of employees.
+     * @param employees The list of employees to print.
+     */
+//    public void printSalaries(ArrayList<Employee> employees)
+//    {
+//        // Print header
+//        System.out.println(String.format("%-10s %-15s %-20s %-8s", "Emp No", "First Name", "Last Name", "Salary"));
+//        // Loop over all employees in the list
+//        for (Employee emp : employees)
+//        {
+//            String emp_string =
+//                    String.format("%-10s %-15s %-20s %-8s",
+//                            emp.emp_no, emp.first_name, emp.last_name, emp.salary);
+//            System.out.println(emp_string);
+//        }
+//    }
+
+    /**
+     * Prints employee information
+     * @param emp employee to display
+     */
+//    public void displayEmployee(Employee emp)
+//    {
+//        if (emp != null)
+//        {
+//            System.out.println(
+//                    emp.emp_no + " "
+//                            + emp.first_name + " "
+//                            + emp.last_name + "\n"
+//                            + emp.title + "\n"
+//                            + "Salary:" + emp.salary + "\n"
+//                            + emp.dept_name + "\n"
+//                            + "Manager: " + emp.manager + "\n");
+//        }
+//    }
+    /**
+     * Gets all the current employees and salaries.
+     * @return A list of all employees and salaries, or null if there is an error.
+     */
+//    public ArrayList<Employee> getAllSalaries()
+//    {
+//        try
+//        {
+//            // Create an SQL statement
+//            Statement stmt = con.createStatement();
+//            // Create string for SQL statement
+//            String strSelect =
+//                    "SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary "
+//                            + "FROM employees, salaries "
+//                            + "WHERE employees.emp_no = salaries.emp_no AND salaries.to_date = '9999-01-01' "
+//                            + "ORDER BY employees.emp_no ASC";
+//            // Execute SQL statement
+//            ResultSet rset = stmt.executeQuery(strSelect);
+//            // Extract employee information
+//            ArrayList<Employee> employees = new ArrayList<Employee>();
+//            while (rset.next())
+//            {
+//                Employee emp = new Employee();
+//                emp.emp_no = rset.getInt("employees.emp_no");
+//                emp.first_name = rset.getString("employees.first_name");
+//                emp.last_name = rset.getString("employees.last_name");
+//                emp.salary = rset.getInt("salaries.salary");
+//                employees.add(emp);
+//            }
+//            return employees;
+//        }
+//        catch (Exception e)
+//        {
+//            System.out.println(e.getMessage());
+//            System.out.println("Failed to get salary details");
+//            return null;
+//        }
+//    }
+
+    /**
+     * Gets all the current employees and salaries ordered by title.
+     * @return A list of all employees and salaries that have the title, or null if there is an error.
+     */
+//    public ArrayList<Employee> getSalaryByRole(String role)
+//    {
+//        try
+//        {
+//            // Create an SQL statement
+//            Statement stmt = con.createStatement();
+//            // Create string for SQL statement
+//            String strSelect = "SELECT employees.emp_no, employees.first_name, employees.last_name, salaries.salary "
+//                    + "FROM employees, salaries, titles "
+//                    + "WHERE employees.emp_no = salaries.emp_no "
+//                    + "AND employees.emp_no = titles.emp_no "
+//                    + "AND salaries.to_date = '9999-01-01' "
+//                    + "AND titles.to_date = '9999-01-01' "
+//                    + "AND titles.title = '" + role + "'"
+//                    + " ORDER BY employees.emp_no ASC";
+//
+//            // Execute SQL statement
+//            ResultSet rset = stmt.executeQuery(strSelect);
+//            // Extract employee information
+//            ArrayList<Employee> employees = new ArrayList<Employee>();
+//            while (rset.next())
+//            {
+//                Employee emp = new Employee();
+//                emp.emp_no = rset.getInt("employees.emp_no");
+//                emp.first_name = rset.getString("employees.first_name");
+//                emp.last_name = rset.getString("employees.last_name");
+//                emp.salary = rset.getInt("salaries.salary");
+//                employees.add(emp);
+//            }
+//            return employees;
+//        }
+//        catch (Exception e)
+//        {
+//            System.out.println(e.getMessage());
+//            System.out.println("Failed to get salary details");
+//            return null;
+//        }
+//    }
+
 
 }

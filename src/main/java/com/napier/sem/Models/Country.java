@@ -4,12 +4,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 
+/**
+ * Represents a country
+ */
 public class Country extends AModel {
 
+    /**
+     * constructor takes a ResultSet to create the model
+     * @param rset representation of the model in the database
+     * @throws SQLException
+     */
     public Country(ResultSet rset) throws SQLException {
         super(rset);
     }
 
+    /**
+     * constructs the model with the given ResultSet
+     * @throws SQLException
+     */
     @Override
     protected void construct() throws SQLException {
         if (rset.isBeforeFirst())
@@ -32,6 +44,11 @@ public class Country extends AModel {
         this.code2 = rset.getString("Code2");
     }
 
+    /**
+     * Converts a string to the Continent enum
+     * @param continent string of a continent
+     * @return the enum representation of a continent
+     */
     private Continent stringToContinent(String continent) {
         if (Objects.equals(continent, "North America"))
             return Continent.North_America;
@@ -41,33 +58,92 @@ public class Country extends AModel {
         return Continent.valueOf(continent);
     }
 
+    /**
+     * Country's code
+     */
     public String code;
 
+    /**
+     * Country's name
+     */
     public String name;
 
+    /**
+     * Country's continent
+     */
     public Continent continent;
 
+    /**
+     * Country's region
+     */
     public String region;
 
+    /**
+     * Country's surfaceArea
+     */
     public int surfaceArea;
 
+    /**
+     * Country's indepYear
+     */
     public int indepYear;
 
+    /**
+     * Country's population
+     */
     public int population;
 
+    /**
+     * Country's lifeExpectancy
+     */
     public int lifeExpectancy;
 
+    /**
+     * Country's gnp
+     */
     public float gnp;
 
+    /**
+     * Country's gnpOld
+     */
     public float gnpOld;
 
+    /**
+     * Country's localName
+     */
     public String localName;
 
+    /**
+     * Country's governmentForm
+     */
     public String governmentForm;
 
+    /**
+     * Country's headOfState
+     */
     public String headOfState;
 
+    /**
+     * Country's capital
+     */
     public String capital;
 
+    /**
+     * Country's code2
+     */
     public String code2;
+
+    /**
+     * Returns the necessary columns of the country for the reports
+     * @return returns the string representation of the model
+     */
+    @Override
+    public String toString() {
+        return "Country: " + "code='" + code +
+                ", name='" + name +
+                ", continent=" + continent +
+                ", region='" + region +
+                ", population=" + population +
+                ", capital='" + capital;
+    }
 }
