@@ -20,172 +20,166 @@ public class PopulationReport extends AReport{
     }
 
     /**
-     * Returns population of given city
-     * @return population of the given city
+     * Returns population of the world
      */
-
-    public Long getWorldPopulation(){
+    public void getWorldPopulation(){
         try
         {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
+
             // Create string for SQL statement
             String strSelect = "SELECT sum(population) as 'population' FROM country";
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            if (rset.next()) return rset.getLong("population");
-            return null;
+
+            // Extract and print population information
+            if (rset.next()) System.out.println("\nTotal world population: " + rset.getLong("population"));
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get World details");
-            return null;
+            System.out.println("Failed to get world population details");
         }
     }
 
     /**
      * Returns population of given continent
-     * @param continent
-     * @return population of the given continent
+     * @param continent a continent
      */
-    public Integer getPopulationOfContinent(Continent continent){
+    public void getPopulationOfContinent(Continent continent){
         try
         {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
+
             // Create string for SQL statement
             String strSelect =
                     "SELECT sum(population) as 'population' FROM country WHERE continent='" + continent.toString() + "'";
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            if (rset.next())
-                return rset.getInt("population");
-            return null;
+
+            // Extract and print population information
+            if (rset.next()) System.out.println("\nPopulation of " + continent + ": " + rset.getInt("population"));
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
+            System.out.println("Failed to get continent population details");
         }
     }
 
     /**
-     * Returns population of given Region
-     * @param regionName Uses name of the Region
-     * @return population of the given Region
+     * Returns population of given region
+     * @param regionName name of a region
      */
-
-    public Integer getPopulationOfRegion(String regionName){
+    public void getPopulationOfRegion(String regionName){
         try
         {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
+
             // Create string for SQL statement
             String strSelect = "SELECT SUM(Population) AS population FROM country WHERE Region = '" + regionName + "'";
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            if (rset.next()) return rset.getInt("population");
-            return null;
+
+            // Extract and print population information
+            if (rset.next()) System.out.println("\nPopulation of the " + regionName + " region: " + rset.getInt("population"));
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get region details");
-            return null;
+            System.out.println("Failed to get region population details");
         }
     }
 
     /**
      * Returns population of given city
-     * @param cityName Uses name of the City
-     * @return population of the given city
+     * @param cityName name of a city
      */
-
-    public Integer getPopulationOfCity(String cityName){
+    public void getPopulationOfCity(String cityName){
         try
         {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
+
             // Create string for SQL statement
-            String strSelect = "SELECT population FROM city WHERE Name = '" + cityName + "'";
+            String strSelect = "SELECT Population FROM city WHERE Name = '" + cityName + "'";
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            if (rset.next()) return rset.getInt("population");
-            return null;
+
+            // Extract and print population information
+            if (rset.next()) System.out.println("\nPopulation of " + cityName + ": " + rset.getInt("Population"));
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get city details");
-            return null;
+            System.out.println("Failed to get city population details");
         }
     }
 
     /**
      * Returns the total population of a district
-     * @return population
+     * @param districtName the name of a district
      */
-    public Integer getDistrictTotalPopulation(String district)
+    public void getDistrictTotalPopulation(String districtName)
     {
         try
         {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
+
             // Create string for SQL statement
             String strSelect =
                     "SELECT SUM(Population) AS 'District Total Population'"
                             + "FROM city "
-                            + "WHERE District = '" + district + "' ";
+                            + "WHERE District = '" + districtName + "' ";
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
-            Integer population = 0;
-            while (rset.next())
-            {
-                population = rset.getInt("District Total Population");
-            }
-            return population;
+
+            // Extract and print population information
+            if (rset.next()) System.out.println("\nPopulation of the " + districtName + " district: " + rset.getInt("District Total Population"));
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get the district total population");
-            return null;
+            System.out.println("Failed to get district population details");
         }
     }
 
     /**
      * Returns the total population of a country
-     * @param country
-     * @return population
+     * @param countryName the name of a country
      */
-    public Integer getTotalPopulationCountry(String country)
+    public void getTotalPopulationCountry(String countryName)
     {
         try
         {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
+
             // Create string for SQL statement
             String strSelect =
                       "SELECT Population "
                               + "FROM country "
-                              + "WHERE Name = '" + country + "' ";
+                              + "WHERE Name = '" + countryName + "' ";
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
-            Integer population = 0;
-            if (rset.next()){
-                population = rset.getInt("Population");
-            }
-            return population;
+
+            // Extract and print population information
+            if (rset.next()) System.out.println("\nTotal population of " + countryName + ": " + rset.getInt("Population"));
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get the country total population");
-            return null;
+            System.out.println("Failed to get country population details");
         }
     }
 

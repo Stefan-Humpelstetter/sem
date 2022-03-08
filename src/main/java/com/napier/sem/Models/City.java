@@ -27,6 +27,7 @@ public class City extends AModel {
             rset.next();
 
         this.id = rset.getInt("id");
+        this.name = rset.getString("name");
         this.countryCode = rset.getString("countrycode");
         this.district = rset.getString("district");
         this.population = rset.getInt("population");
