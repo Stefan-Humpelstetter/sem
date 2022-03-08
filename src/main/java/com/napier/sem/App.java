@@ -34,44 +34,28 @@ public class App
         LanguageReport languageReport = new LanguageReport(a.con);
 
         // Print population of North America
-        System.out.println("Population of North America:");
-        System.out.println(populationReport.getPopulationOfContinent(Continent.North_America));
+        populationReport.getPopulationOfContinent(Continent.North_America);
 
         // Print total population of a district
-        System.out.println("\nPopulation of the district Kabol:");
-        System.out.println(populationReport.getDistrictTotalPopulation("Kabol"));
+        populationReport.getDistrictTotalPopulation("Kabol");
 
         // Print top n populated capital cities
-        System.out.println("\nTop 3 populated capitals:");
-        for (String name : capitalCityReport.getTopPopulatedCapitalCities(3)){
-            System.out.println(name);
-        }
+        capitalCityReport.getTopPopulatedCapitalCities(3);
 
         // Print total country population
-        System.out.println("\nTotal population of Italy:");
-        System.out.println(populationReport.getTotalPopulationCountry("Italy"));
+        populationReport.getTotalPopulationCountry("Italy");
 
-        // Print most populated capital of region 'Eastern Africa'
-        System.out.println("\nMost populated capital cities of the region 'Eastern Africa'");
-        System.out.println(capitalCityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
+        // Print n most populated capital cities of region 'Eastern Africa'
+        capitalCityReport.getTopPopulatedCapitalCities("Eastern Africa",5);
 
-        // Print most populated capital of region 'Eastern Africa'
-        System.out.println("\n5 Most populated capital cities");
-        System.out.println(capitalCityReport.getTopPopulatedCapitalCities("Eastern Africa",5));
-
-        // Print poulation of City based on the cityName(String)
-        System.out.println();
-        System.out.println("Population of Edinburgh: " + populationReport.getPopulationOfCity("Edinburgh"));
-        System.out.println("Population of London: " + populationReport.getPopulationOfCity("London"));
+        // Print population of City based on the cityName(String)
+        populationReport.getPopulationOfCity("Edinburgh");
 
         // Print population of the world based on sum population of all the countries
-        System.out.println();
-        System.out.println("Total world population: " + populationReport.getWorldPopulation());
+        populationReport.getWorldPopulation();
 
         // Print sum population of the region based on the regionName(String)
-        System.out.println();
-        System.out.println("Population of Caribbean region: " + populationReport.getPopulationOfRegion("Caribbean"));
-        System.out.println("Population of Polynesia region: " + populationReport.getPopulationOfRegion("Polynesia"));
+        populationReport.getPopulationOfRegion("Caribbean");
 
         // Disconnect from database
         a.disconnect();

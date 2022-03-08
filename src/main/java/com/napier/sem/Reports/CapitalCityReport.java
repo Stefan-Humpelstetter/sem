@@ -1,5 +1,7 @@
 package com.napier.sem.Reports;
 
+import com.napier.sem.Models.City;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -21,71 +23,77 @@ public class CapitalCityReport extends AReport {
     /**
      * Returns the n top populated capital cities
      * @param n
-     * @return cities
      */
-    public ArrayList<String> getTopPopulatedCapitalCities (int n){
+    public void getTopPopulatedCapitalCities (int n){
         try
         {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
+
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.Name "
+                    "SELECT * "
                             + "FROM city JOIN country ON city.CountryCode = country.Code "
                             + "WHERE city.ID IN (SELECT Capital FROM country) "
                             + "ORDER BY city.Population DESC "
                             + "LIMIT " + n;
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract city information
-            ArrayList<String> cities = new ArrayList<String>();
+
+            // Extract capital city information
+            ArrayList<City> cities = new ArrayList<City>();
             while (rset.next())
             {
-                String name = rset.getString("city.Name");
-                cities.add(name);
+                cities.add(new City(rset));
             }
 
-            return cities;
+            // Print data
+            System.out.println("\nTop " + n + " populated capitals:");
+            for (City city : cities){
+                System.out.println(city.toString(true));
+            };
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get salary details");
-            return null;
+            System.out.println("Failed to get capital cities population information");
         }
     }
 
     /**
-     * Queries for n biggest cities in the given region
-     * @param region
-     * @param n states how many cities should be returned
-     * @return list of n cities with the most population in the given region
+     * Returns the n biggest cities in the given region
+     * @param region the name of a region
+     * @param n number of cities to be returned
      */
-    public ArrayList<String> getTopPopulatedCapitalCities(String region, int n) {
+    public void getTopPopulatedCapitalCities(String region, int n) {
         try {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
+
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.name " +
+                    "SELECT * " +
                             "FROM city JOIN country ON city.CountryCode = country.Code " +
                             "WHERE  city.ID IN (SELECT Capital FROM country) " +
-                            "AND country.region = '" + region + "' " +
-                            "ORDER BY city.population DESC " +
+                            "AND country.Region = '" + region + "' " +
+                            "ORDER BY city.Population DESC " +
                             "LIMIT " + n;
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract city information
-            //ArrayList<City> cities = new ArrayList<City>();
-            ArrayList<String> cities = new ArrayList<String>();
 
+            // Extract capital city information
+            ArrayList<City> cities = new ArrayList<City>();
             while (rset.next())
-                cities.add(rset.getString("city.Name"));
+                cities.add(new City(rset));
 
-
-            return cities;
+            // Print data
+            System.out.println("\n" + n + " most populated capital cities of the region " + region + "'Eastern Africa'");
+            for (City city : cities){
+                System.out.println(city.toString(true));
+            };
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get the n top populated countries");
-            return null;
+            System.out.println("Failed to get capital cities population information");
         }
     }
 }
