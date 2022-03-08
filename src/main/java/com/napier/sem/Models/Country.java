@@ -132,4 +132,18 @@ public class Country extends AModel {
      * Country's code2
      */
     public String code2;
+
+    /**
+     * Returns the necessary columns of the country for the reports
+     * @return returns the string representation of the model
+     */
+    @Override
+    public String toString() {
+        return "Country: " + "code='" + code +
+                ", name='" + name +
+                ", continent=" + continent +
+                ", region='" + region +
+                ", population=" + population +
+                ", capital='" + capital;
+    }
 }

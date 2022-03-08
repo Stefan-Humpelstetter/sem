@@ -58,7 +58,7 @@ public class City extends AModel {
     public int population;
 
     /**
-     * Returns the necessary columns for the reports
+     * Returns the necessary columns of the city for the reports
      * @param capital determines if the report is a capital city report
      * @return returns the string representation of the model
      */
