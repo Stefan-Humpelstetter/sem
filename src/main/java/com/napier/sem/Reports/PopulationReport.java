@@ -156,11 +156,6 @@ public class PopulationReport extends AReport{
         }
     }
 
-
-    public void printPopulationReportForPeopleLivingInCitiesByContinent(){
-
-    }
-
     /**
      * Returns the total population of a country
      * @param country
@@ -191,6 +186,52 @@ public class PopulationReport extends AReport{
             System.out.println(e.getMessage());
             System.out.println("Failed to get the country total population");
             return null;
+        }
+    }
+
+    /**
+     * Prints the total amount (and %) of people from a continent living in a city and
+     * prints the total amount (and %) of people from a continent not living in a city
+     * @param continent contintent the report needs to be created for
+     */
+    public void printPopulationReportForPeopleLivingInCitiesByContinent(Continent continent){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT (SELECT sum(population) FROM country WHERE Continent='"+continent.toString()+"') as 'Population Total', " +
+                            "(SELECT sum(city.population) FROM city " +
+                            "JOIN country ON city.CountryCode = country.code WHERE country.Continent='"+continent.toString()+"') as 'Population City' " +
+                            "FROM DUAL;";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            if (rset.next()){
+                int totalPopulation = rset.getInt("Population Total");
+                int cityPopulation = rset.getInt("Population City");
+
+                System.out.println("\nPopulation Report from Continent "+continent+":");
+                System.out.println("Total Population: "+totalPopulation);
+                float cityPercent = ((float)cityPopulation/(float)totalPopulation)*100;
+                System.out.println("Total Population of people living in cities: "
+                        +cityPopulation
+                        +" ("
+                        + cityPercent
+                        +"%)");
+                float noCityPercent = (((float)totalPopulation-(float)cityPopulation)/(float)totalPopulation)*100;
+                System.out.println("Total Population of people not living in cities: "
+                        +(totalPopulation-cityPopulation)
+                        +" ("
+                        + noCityPercent
+                        +"%)");
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get the continents population report data");
         }
     }
 }

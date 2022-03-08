@@ -33,6 +33,8 @@ public class App
         CityReport cityReport = new CityReport(a.con);
         LanguageReport languageReport = new LanguageReport(a.con);
 
+        populationReport.printPopulationReportForPeopleLivingInCitiesByContinent(Continent.Europe);
+
         // Print population of North America
         System.out.println("Population of "+Continent.North_America+" :");
         System.out.println(populationReport.getPopulationOfContinent(Continent.North_America));
