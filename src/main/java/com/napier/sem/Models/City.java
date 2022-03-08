@@ -64,12 +64,12 @@ public class City extends AModel {
      * @return returns the string representation of the model
      */
     public String toString(boolean capital) {
-        String returnString = "City: name='" + name +
-                ", countryCode='" + countryCode +
+        String returnString = "City: name=" + name +
+                ", countryCode=" + countryCode +
                 ", population=" + population;
 
         if(capital)
-            returnString+=", district='" + district;
+            returnString+=", district=" + district;
 
         return returnString;
     }

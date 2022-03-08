@@ -139,11 +139,11 @@ public class Country extends AModel {
      */
     @Override
     public String toString() {
-        return "Country: " + "code='" + code +
-                ", name='" + name +
+        return "Country: " + "code=" + code +
+                ", name=" + name +
                 ", continent=" + continent +
-                ", region='" + region +
+                ", region=" + region +
                 ", population=" + population +
-                ", capital='" + capital;
+                ", capital=" + capital;
     }
 }
