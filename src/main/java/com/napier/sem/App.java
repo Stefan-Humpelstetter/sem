@@ -34,7 +34,7 @@ public class App
         LanguageReport languageReport = new LanguageReport(a.con);
 
         // Print population of North America
-        System.out.println("Population of North America:");
+        System.out.println("Population of "+Continent.North_America+" :");
         System.out.println(populationReport.getPopulationOfContinent(Continent.North_America));
 
         // Print total population of a district
