@@ -97,6 +97,11 @@ public class CapitalCityReport extends AReport {
             System.out.println("Failed to get capital cities population information");
         }
     }
+    /**
+     * Returns the n top populated capital cities in the given continent
+     * @param continent the name of the continent
+     * @param n number of top populated capital cities to be returned
+     */
     public void getTopNPopulatedCapitalCitiesInAContinent( Continent continent, int n) {
         try {
             // Create an SQL statement
