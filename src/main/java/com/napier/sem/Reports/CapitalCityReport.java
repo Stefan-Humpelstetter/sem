@@ -104,7 +104,7 @@ public class CapitalCityReport extends AReport {
 
             // Create string for SQL statement
             String strSelect =
-                    "SELECT city.name,city.Population " +
+                    "SELECT *" +
                             "FROM city JOIN country ON city.CountryCode = country.Code " +
                             "WHERE  city.ID IN (SELECT Capital FROM country) " +
                             "AND country.Continent= '"+continent.toString()+"' " +
@@ -120,7 +120,7 @@ public class CapitalCityReport extends AReport {
                 cities.add(new City(rset));
 
             // Print data
-            System.out.println("\n" + n + " most populated capital cities in countries in " + continent.toString() + "'Asia'");
+            System.out.println("\n" + n + " most populated capital cities in countries in " + continent.toString() + ":");
             for (City city : cities){
                 System.out.println(city.toString(true));
             };
