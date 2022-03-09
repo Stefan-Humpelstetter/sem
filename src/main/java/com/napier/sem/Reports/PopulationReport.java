@@ -20,7 +20,7 @@ public class PopulationReport extends AReport{
     }
 
     /**
-     * Returns population of the world
+     * Prints population of the world
      */
     public void getWorldPopulation(){
         try
@@ -45,7 +45,7 @@ public class PopulationReport extends AReport{
     }
 
     /**
-     * Returns population of given continent
+     * Prints population of given continent
      * @param continent a continent
      */
     public void getPopulationOfContinent(Continent continent){
@@ -72,7 +72,7 @@ public class PopulationReport extends AReport{
     }
 
     /**
-     * Returns population of given region
+     * Prints population of given region
      * @param regionName name of a region
      */
     public void getPopulationOfRegion(String regionName){
@@ -98,7 +98,7 @@ public class PopulationReport extends AReport{
     }
 
     /**
-     * Returns population of given city
+     * Print population of given city
      * @param cityName name of a city
      */
     public void getPopulationOfCity(String cityName){
@@ -124,7 +124,7 @@ public class PopulationReport extends AReport{
     }
 
     /**
-     * Returns the total population of a district
+     * Prints the total population of a district
      * @param districtName the name of a district
      */
     public void getDistrictTotalPopulation(String districtName)
@@ -154,7 +154,7 @@ public class PopulationReport extends AReport{
     }
 
     /**
-     * Returns the total population of a country
+     * Prints the total population of a country
      * @param countryName the name of a country
      */
     public void getTotalPopulationCountry(String countryName)
