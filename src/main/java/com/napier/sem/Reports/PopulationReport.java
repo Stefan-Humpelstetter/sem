@@ -257,4 +257,34 @@ public class PopulationReport extends AReport{
             System.out.println("Failed to get the continents population report data");
         }
     }
+    /**
+     * Prints the population of a given country, which lives in a city
+     * Prints the population of a given country, which does not live in a city
+     * @param countryName needed for the population report to be created
+     */
+    public void getPopulationOfPeopleLivingInAndOutACityByCountry(String countryName){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT country.Name,country.Code, SUM(city.Population) AS 'People living In a City',country.Population-SUM(city.Population) AS 'People not living in City'"
+                            +"FROM city JOIN country ON city.CountryCode= country.Code"
+                            +"WHERE country.Name='" +countryName+ "'"
+                            +"GROUP by country.Code";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            if (rset.next()){
+                System.out.println("\nPopulation report for people living in city in" + countryName + ":" +rset.getInt("People living in a city"));
+                System.out.println("\nPopulation report for people not living in a city in" +countryName+ " region:" +rset.getInt("People not living in a city"));
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get the continents population report data");
+        }
+    }
 }

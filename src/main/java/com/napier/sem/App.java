@@ -62,7 +62,11 @@ public class App
         // Print the top N populated capital cities in a given continent
         capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Oceania,4);
 
+        // Print the population of people living in a city and outside of a city by region
         populationReport.getPopulationOfPeopleLivingInAndOutACityByRegion("Caribbean");
+
+        // Print the population of people living in a city and outside of a city by country
+        populationReport.getPopulationOfPeopleLivingInAndOutACityByCountry("Bulgaria");
         // Disconnect from database
         a.disconnect();
     }
