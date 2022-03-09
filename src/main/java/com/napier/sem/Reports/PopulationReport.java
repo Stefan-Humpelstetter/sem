@@ -247,7 +247,8 @@ public class PopulationReport extends AReport{
             ResultSet rset = stmt.executeQuery(strSelect);
 
             if (rset.next()){
-                System.out.println("\nPopulation report for people living in and out a city for the" +region+ "region:" +rset.getInt("People living in a city")+ rset.getInt("People not living in a city"));
+                System.out.println("\nPopulation report for people living in city for the " +region+ " region:" +rset.getInt("People living in a city"));
+                System.out.println("\nPopulation report for people not living in a city for the " +region+ " region:" +rset.getInt("People not living in a city"));
             }
         }
         catch (Exception e)
