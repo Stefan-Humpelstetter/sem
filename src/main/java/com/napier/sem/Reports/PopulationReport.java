@@ -269,7 +269,7 @@ public class PopulationReport extends AReport{
             Statement stmt = connection.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT country.Name,country.Code, SUM(city.Population) AS 'People living In a City',country.Population-SUM(city.Population) AS 'People not living in City'"
+                    "SELECT country.Name,country.Code, SUM(city.Population) AS 'People living In a City',country.Population-SUM(city.Population) AS 'People not living in a City'"
                             +"FROM city JOIN country ON city.CountryCode= country.Code"
                             +"WHERE country.Name='" +countryName+ "'"
                             +"GROUP by country.Code";
@@ -277,8 +277,8 @@ public class PopulationReport extends AReport{
             ResultSet rset = stmt.executeQuery(strSelect);
 
             if (rset.next()){
-                System.out.println("\nPopulation report for people living in city in" + countryName + ":" +rset.getInt("People living in a city"));
-                System.out.println("\nPopulation report for people not living in a city in" +countryName+ " region:" +rset.getInt("People not living in a city"));
+                System.out.println("\nPopulation report for people living in city in" + countryName + ":" +rset.getInt("People living in a City"));
+                System.out.println("\nPopulation report for people not living in a city in" +countryName+ ":" +rset.getInt("People not living in a City"));
             }
         }
         catch (Exception e)
