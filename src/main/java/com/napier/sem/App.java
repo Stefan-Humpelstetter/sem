@@ -59,6 +59,8 @@ public class App
         // Print sum population of the region based on the regionName(String)
         populationReport.getPopulationOfRegion("Caribbean");
 
+        capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Oceania,4);
+
         // Disconnect from database
         a.disconnect();
     }
