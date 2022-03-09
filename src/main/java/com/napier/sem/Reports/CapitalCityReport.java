@@ -22,7 +22,7 @@ public class CapitalCityReport extends AReport {
     }
 
     /**
-     * Returns the n top populated capital cities
+     * Prints the n top populated capital cities
      * @param n
      */
     public void getTopPopulatedCapitalCities (int n){
@@ -61,7 +61,7 @@ public class CapitalCityReport extends AReport {
     }
 
     /**
-     * Returns the n biggest cities in the given region
+     * Prints the n biggest cities in the given region
      * @param region the name of a region
      * @param n number of cities to be returned
      */
@@ -98,7 +98,7 @@ public class CapitalCityReport extends AReport {
         }
     }
     /**
-     * Returns the n top populated capital cities in the given continent
+     * Prints the n top populated capital cities in the given continent
      * @param continent the name of the continent
      * @param n number of top populated capital cities to be returned
      */
