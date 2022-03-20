@@ -114,4 +114,12 @@ public class App {
             }
         }
     }
+
+    /**
+     * Returns connection
+     * @return connection
+     */
+    public Connection getConnection() {
+        return con;
+    }
 }

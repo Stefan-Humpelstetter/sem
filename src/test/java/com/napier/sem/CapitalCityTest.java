@@ -1,24 +1,35 @@
 package com.napier.sem;
 
+import com.napier.sem.Models.Continent;
 import com.napier.sem.Reports.CapitalCityReport;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
 public class CapitalCityTest {
-    static App app;
+    private static App app;
+    private static CapitalCityReport capitalCityReport;
 
     @BeforeAll
     static void init()
     {
         app = new App();
-        // CapitalCityReport capitalCityReport = new CapitalCityReport();
+        app.connect();
+        capitalCityReport = new CapitalCityReport(app.getConnection());
     }
 
     @Test
-    void somethingTestNull()
+    void testGetTopNPopulatedCapitalCitiesInAContinent()
     {
-        // app.aMethod();
+        capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Africa,5);
+
+    }
+
+    @AfterAll
+    static void afterAll() {
+        app.disconnect();
     }
 }
 
