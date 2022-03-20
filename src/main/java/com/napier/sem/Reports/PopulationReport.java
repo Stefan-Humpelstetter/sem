@@ -304,14 +304,57 @@ public class PopulationReport extends AReport{
                         + peopleOutCityPercentage
                         +"%)");
 
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get the region population report data");
+        }
+    }
+    /**
+     * Prints the population(and %) of a given country, which lives in a city
+     * Prints the population(and %) of a given country, which does not live in a city
+     * @param countryName needed for the population report to be created
+     */
+    public void getPopulationOfPeopleLivingInAndOutACityByCountry(String countryName){
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT country.Name,country.Code, SUM(city.Population) AS 'People living In a City',country.Population-SUM(city.Population) AS 'People not living in City'"
+                            +"FROM city JOIN country ON city.CountryCode= country.Code"
+                            +"WHERE country.Name='" +countryName+ "'"
+                            +"GROUP by country.Code";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
 
+            if (rset.next()){
+                int peopleInCity = rset.getInt("Population living In a City");
+                int peopleOutCity= rset.getInt("People not living in a City");
+                System.out.println("\nPopulation Report for people living in a city and out of a city in " + countryName);
+                float peopleInCityPercentage = ((float)peopleInCity/((float)peopleInCity+(float)peopleOutCity))*100;
+                float peopleOutCityPercentage = ((float)peopleOutCity/((float)peopleInCity+(float)peopleOutCity))*100;
+                System.out.println("Total population for the country: "+ (peopleInCity+peopleOutCity));
+                System.out.println("Total Population of people living in cities: " +
+                        (peopleInCity)
+                        +" ("
+                        + peopleInCityPercentage
+                        +"%)");
+                System.out.println("Total Population of people living out of a city: " +
+                        (peopleOutCity)
+                        +" ("
+                        + peopleOutCityPercentage
+                        +"%)");
 
             }
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get the continents population report data");
+            System.out.println("Failed to get the country population report data");
         }
     }
 }
