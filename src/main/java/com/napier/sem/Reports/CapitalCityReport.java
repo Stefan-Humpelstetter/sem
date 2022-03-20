@@ -24,8 +24,9 @@ public class CapitalCityReport extends AReport {
     /**
      * Prints the n top populated capital cities
      * @param n
+     * @return list of top n populated capital cities
      */
-    public void getTopPopulatedCapitalCities (int n){
+    public ArrayList<City> getTopPopulatedCapitalCities (int n){
         try
         {
             // Create an SQL statement
@@ -54,18 +55,22 @@ public class CapitalCityReport extends AReport {
             for (City city : cities){
                 System.out.println(city.toString(true));
             };
+
+            return cities;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get capital cities population information");
         }
+        return null;
     }
 
     /**
      * Prints the n biggest cities in the given region
      * @param region the name of a region
      * @param n number of cities to be returned
+     * @return list of n biggest cities in the given region
      */
-    public void getTopPopulatedCapitalCities(String region, int n) {
+    public ArrayList<City> getTopPopulatedCapitalCities(String region, int n) {
         try {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
@@ -92,17 +97,21 @@ public class CapitalCityReport extends AReport {
             for (City city : cities){
                 System.out.println(city.toString(true));
             };
+
+            return cities;
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get capital cities population information");
         }
+        return null;
     }
     /**
      * Prints the n top populated capital cities in the given continent
      * @param continent the name of the continent
      * @param n number of top populated capital cities to be returned
+     * @return list of n top populated capital cities in the given continent
      */
-    public void getTopNPopulatedCapitalCitiesInAContinent( Continent continent, int n) {
+    public ArrayList<City> getTopNPopulatedCapitalCitiesInAContinent(Continent continent, int n) {
         try {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
@@ -129,9 +138,13 @@ public class CapitalCityReport extends AReport {
             for (City city : cities){
                 System.out.println(city.toString(true));
             };
+
+            return cities;
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get capital cities population information");
         }
+        return null;
     }
 }

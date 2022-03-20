@@ -32,6 +32,18 @@ public class App {
         CityReport cityReport = new CityReport(a.con);
         LanguageReport languageReport = new LanguageReport(a.con);
 
+        System.out.println("--- Capital City Reports ---");
+
+        // Print top n populated capital cities
+        capitalCityReport.getTopPopulatedCapitalCities(3);
+
+        // Print n most populated capital cities of region 'Eastern Africa'
+        capitalCityReport.getTopPopulatedCapitalCities("Eastern Africa", 5);
+
+        // Print the top N populated capital cities in a given continent
+        capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Oceania, 4);
+
+        // Print report for people living in cities for continent 'Europe'
         populationReport.printPopulationReportForPeopleLivingInCitiesByContinent(Continent.Europe);
 
         // Print population of North America
@@ -40,14 +52,8 @@ public class App {
         // Print total population of a district
         populationReport.getDistrictTotalPopulation("Kabol");
 
-        // Print top n populated capital cities
-        capitalCityReport.getTopPopulatedCapitalCities(3);
-
         // Print total country population
         populationReport.getTotalPopulationCountry("Italy");
-
-        // Print n most populated capital cities of region 'Eastern Africa'
-        capitalCityReport.getTopPopulatedCapitalCities("Eastern Africa", 5);
 
         // Print population of City based on the cityName(String)
         populationReport.getPopulationOfCity("Edinburgh");
@@ -57,9 +63,6 @@ public class App {
 
         // Print sum population of the region based on the regionName(String)
         populationReport.getPopulationOfRegion("Caribbean");
-
-        // Print the top N populated capital cities in a given continent
-        capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Oceania, 4);
 
         // Print the population of people living in a city and outside of a city by region
         populationReport.getPopulationOfPeopleLivingInAndOutACityByRegion("Caribbean");
