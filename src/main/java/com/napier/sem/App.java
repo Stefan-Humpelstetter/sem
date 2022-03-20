@@ -32,7 +32,7 @@ public class App {
         CityReport cityReport = new CityReport(a.con);
         LanguageReport languageReport = new LanguageReport(a.con);
 
-        System.out.println("--- Capital City Reports ---");
+        System.out.println("\n\n--- Capital City Reports ---");
 
         // Print top n populated capital cities
         capitalCityReport.getTopPopulatedCapitalCities(3);
@@ -42,6 +42,8 @@ public class App {
 
         // Print the top N populated capital cities in a given continent
         capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Oceania, 4);
+
+        System.out.println("\n\n--- Population Reports ---");
 
         // Print report for people living in cities for continent 'Europe'
         populationReport.printPopulationReportForPeopleLivingInCitiesByContinent(Continent.Europe);

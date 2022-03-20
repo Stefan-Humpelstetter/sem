@@ -21,8 +21,9 @@ public class PopulationReport extends AReport{
 
     /**
      * Prints population of the world
+     * @return the worlds' population as long
      */
-    public void getWorldPopulation(){
+    public long getWorldPopulation(){
         try
         {
             // Create an SQL statement
@@ -35,20 +36,29 @@ public class PopulationReport extends AReport{
             ResultSet rset = stmt.executeQuery(strSelect);
 
             // Extract and print population information
-            if (rset.next()) System.out.println("\nTotal world population: " + rset.getLong("population"));
+            if (rset.next())
+            {
+                long population = rset.getLong("population");
+                System.out.println("\nTotal world population: " + population);
+
+                return population;
+            }
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
             System.out.println("Failed to get world population details");
         }
+
+        return 0;
     }
 
     /**
      * Prints population of given continent
      * @param continent a continent
+     * @return the population of the given continent as integer
      */
-    public void getPopulationOfContinent(Continent continent){
+    public int getPopulationOfContinent(Continent continent){
         try
         {
             // Create an SQL statement
@@ -62,20 +72,26 @@ public class PopulationReport extends AReport{
             ResultSet rset = stmt.executeQuery(strSelect);
 
             // Extract and print population information
-            if (rset.next()) System.out.println("\nPopulation of " + continent + ": " + rset.getInt("population"));
+            if (rset.next()) {
+                int population = rset.getInt("population");
+                System.out.println("\nPopulation of " + continent + ": " + population);
+                return population;
+            }
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
             System.out.println("Failed to get continent population details");
         }
+        return 0;
     }
 
     /**
      * Prints population of given region
      * @param regionName name of a region
+     * @return population of the given region as integer
      */
-    public void getPopulationOfRegion(String regionName){
+    public int getPopulationOfRegion(String regionName){
         try
         {
             // Create an SQL statement
@@ -88,20 +104,26 @@ public class PopulationReport extends AReport{
             ResultSet rset = stmt.executeQuery(strSelect);
 
             // Extract and print population information
-            if (rset.next()) System.out.println("\nPopulation of the " + regionName + " region: " + rset.getInt("population"));
+            if (rset.next()) {
+                int population = rset.getInt("population");
+                System.out.println("\nPopulation of the " + regionName + " region: " + population);
+                return population;
+            }
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
             System.out.println("Failed to get region population details");
         }
+        return 0;
     }
 
     /**
      * Print population of given city
      * @param cityName name of a city
+     * @return population of the given city as integer
      */
-    public void getPopulationOfCity(String cityName){
+    public int getPopulationOfCity(String cityName){
         try
         {
             // Create an SQL statement
@@ -114,20 +136,26 @@ public class PopulationReport extends AReport{
             ResultSet rset = stmt.executeQuery(strSelect);
 
             // Extract and print population information
-            if (rset.next()) System.out.println("\nPopulation of " + cityName + ": " + rset.getInt("Population"));
+            if (rset.next()){
+                int population = rset.getInt("Population");
+                System.out.println("\nPopulation of " + cityName + ": " + population);
+                return population;
+            }
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city population details");
         }
+        return 0;
     }
 
     /**
      * Prints the total population of a district
      * @param districtName the name of a district
+     * @return population of the given district as integer
      */
-    public void getDistrictTotalPopulation(String districtName)
+    public int getDistrictTotalPopulation(String districtName)
     {
         try
         {
@@ -144,20 +172,27 @@ public class PopulationReport extends AReport{
             ResultSet rset = stmt.executeQuery(strSelect);
 
             // Extract and print population information
-            if (rset.next()) System.out.println("\nPopulation of the " + districtName + " district: " + rset.getInt("District Total Population"));
+            if (rset.next())
+            {
+                int population = rset.getInt("District Total Population");
+                System.out.println("\nPopulation of the " + districtName + " district: " + population);
+                return population;
+            }
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
             System.out.println("Failed to get district population details");
         }
+        return 0;
     }
 
     /**
      * Prints the total population of a country
      * @param countryName the name of a country
+     * @return population of the given country as integer
      */
-    public void getTotalPopulationCountry(String countryName)
+    public int getTotalPopulationCountry(String countryName)
     {
         try
         {
@@ -174,13 +209,18 @@ public class PopulationReport extends AReport{
             ResultSet rset = stmt.executeQuery(strSelect);
 
             // Extract and print population information
-            if (rset.next()) System.out.println("\nTotal population of " + countryName + ": " + rset.getInt("Population"));
+            if (rset.next()) {
+                int population = rset.getInt("Population");
+                System.out.println("\nTotal population of " + countryName + ": " + population);
+                return population;
+            }
         }
         catch (Exception e)
         {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country population details");
         }
+        return 0;
     }
 
     /**
