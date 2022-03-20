@@ -258,8 +258,8 @@ public class PopulationReport extends AReport{
         }
     }
     /**
-     * Prints the population of a given country, which lives in a city
-     * Prints the population of a given country, which does not live in a city
+     * Prints the population(and %) of a given country, which lives in a city
+     * Prints the population(and %) of a given country, which does not live in a city
      * @param countryName needed for the population report to be created
      */
     public void getPopulationOfPeopleLivingInAndOutACityByCountry(String countryName){
@@ -277,8 +277,23 @@ public class PopulationReport extends AReport{
             ResultSet rset = stmt.executeQuery(strSelect);
 
             if (rset.next()){
-                System.out.println("\nPopulation report for people living in city in" + countryName + ":" +rset.getInt("People living in a city"));
-                System.out.println("\nPopulation report for people not living in a city in" +countryName+ " region:" +rset.getInt("People not living in a city"));
+                int peopleInCity = rset.getInt("Population living In a City");
+                int peopleOutCity= rset.getInt("People not living in a City");
+                System.out.println("\nPopulation Report for people living in a city and out of a city in " + countryName);
+                float peopleInCityPercentage = ((float)peopleInCity/((float)peopleInCity+(float)peopleOutCity))*100;
+                float peopleOutCityPercentage = ((float)peopleOutCity/((float)peopleInCity+(float)peopleOutCity))*100;
+                System.out.println("Total population for the country: "+ (peopleInCity+peopleOutCity));
+                System.out.println("Total Population of people living in cities: " +
+                        (peopleInCity)
+                        +" ("
+                        + peopleInCityPercentage
+                        +"%)");
+                System.out.println("Total Population of people living out of a city: " +
+                        (peopleOutCity)
+                        +" ("
+                        + peopleOutCityPercentage
+                        +"%)");
+
             }
         }
         catch (Exception e)
