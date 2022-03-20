@@ -269,8 +269,8 @@ public class PopulationReport extends AReport{
         }
     }
     /**
-     * Prints the population of a given region, which lives in a city
-     * Prints the population of a given region, which does not live in a city
+     * Prints the population (and %) of a given region, which lives in a city
+     * Prints the population (and %) of a given region, which does not live in a city
      * @param region region needed for the report to be created
      */
     public void getPopulationOfPeopleLivingInAndOutACityByRegion(String region){
@@ -287,38 +287,25 @@ public class PopulationReport extends AReport{
             ResultSet rset = stmt.executeQuery(strSelect);
 
             if (rset.next()){
-                System.out.println("\nPopulation report for people living in city for the " +region+ " region: " +rset.getInt("People living in a city"));
-                System.out.println("Population report for people not living in a city for the " +region+ " region: " +rset.getInt("People not living in a city"));
-            }
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get the continents population report data");
-        }
-    }
-    /**
-     * Prints the population of a given country, which lives in a city
-     * Prints the population of a given country, which does not live in a city
-     * @param countryName needed for the population report to be created
-     */
-    public void getPopulationOfPeopleLivingInAndOutACityByCountry(String countryName){
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = connection.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT country.Name,country.Code, SUM(city.Population) AS 'People living in a City',country.Population-SUM(city.Population) AS 'People not living in a City'"
-                            +"FROM city JOIN country ON city.CountryCode= country.Code "
-                            +"WHERE country.Name='" + countryName + "' "
-                            +"GROUP BY country.Code";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
+                int peopleInCity = rset.getInt("Population living In a city");
+                int peopleOutCity= rset.getInt("People not living in a city");
+                System.out.println("\nPopulation Report for people living in a city and out of a city in the "+ region + " region:");
+                float peopleInCityPercentage = ((float)peopleInCity/((float)peopleInCity+(float)peopleOutCity))*100;
+                float peopleOutCityPercentage = ((float)peopleOutCity/((float)peopleInCity+(float)peopleOutCity))*100;
+                System.out.println("Total population for the region: "+ (peopleInCity+peopleOutCity));
+                System.out.println("Total Population of people living in cities: " +
+                        +(peopleInCity)
+                        +" ("
+                        + peopleInCityPercentage
+                        +"%)");
+                System.out.println("Total Population of people living out of a city: " +
+                        +(peopleOutCity)
+                        +" ("
+                        + peopleOutCityPercentage
+                        +"%)");
 
-            if (rset.next()){
-                System.out.println("\nPopulation report for people living in city in " + countryName + ": " +rset.getInt("People living in a City"));
-                System.out.println("Population report for people not living in a city in " +countryName+ ": " +rset.getInt("People not living in a City"));
+
+
             }
         }
         catch (Exception e)
