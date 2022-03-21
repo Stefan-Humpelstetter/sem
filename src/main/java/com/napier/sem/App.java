@@ -81,8 +81,11 @@ public class App {
         // Print language report for Chinese, English, Hindi and Spanish
         languageReport.getLanguagesAmountAndPercentage();
 
-        // Print list of top populated cities in British Islands by Region
+        // Print list of top populated cities in British Islands by Region - Restricted to 5 to limit spam
         cityReport.getTopPopulatedCities("British Islands",5);
+
+        // Print list of top populated cities in the World - Restricted to 5 to limit spam
+        cityReport.getTopPopulatedCities(5);
 
         // Disconnect from database
         a.disconnect();
