@@ -40,6 +40,9 @@ public class App {
         // Print n most populated capital cities of region 'Eastern Africa'
         capitalCityReport.getTopPopulatedCapitalCities("Eastern Africa", 5);
 
+        // Print all most populated capital cities of region 'Eastern Africa' sorted by population
+        capitalCityReport.getTopPopulatedCapitalCities("Eastern Africa", 0);
+
         // Print the top N populated capital cities in a given continent
         capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Oceania, 4);
 

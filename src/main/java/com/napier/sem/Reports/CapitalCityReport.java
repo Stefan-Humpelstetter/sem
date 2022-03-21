@@ -67,7 +67,7 @@ public class CapitalCityReport extends AReport {
     /**
      * Prints the n biggest cities in the given region
      * @param region the name of a region
-     * @param n number of cities to be returned
+     * @param n number of cities to be returned, when n = 0, all cities of region are returned
      * @return list of n biggest cities in the given region
      */
     public ArrayList<City> getTopPopulatedCapitalCities(String region, int n) {
@@ -82,7 +82,7 @@ public class CapitalCityReport extends AReport {
                             "WHERE  city.ID IN (SELECT Capital FROM country) " +
                             "AND country.Region = '" + region + "' " +
                             "ORDER BY city.Population DESC " +
-                            "LIMIT " + n;
+                            (n > 0? "LIMIT " + n: "");
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -93,7 +93,7 @@ public class CapitalCityReport extends AReport {
                 cities.add(new City(rset));
 
             // Print data
-            System.out.println("\n" + n + " most populated capital cities of the region " + region + "'Eastern Africa'");
+            System.out.println("\n" + (n > 0? n : "All") + " most populated capital cities of the region " + region);
             for (City city : cities){
                 System.out.println(city.toString(true));
             };
