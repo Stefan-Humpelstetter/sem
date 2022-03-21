@@ -71,6 +71,13 @@ public class App {
 
         // Print the population of people living in a city and outside of a city by country
         populationReport.getPopulationOfPeopleLivingInAndOutACityByCountry("Bulgaria");
+
+
+        System.out.println("\n\n--- Language Reports --- \n");
+
+        // Print language report for Chinese, English, Hindi and Spanish
+        languageReport.getLanguagesAmountAndPercentage();
+
         // Disconnect from database
         a.disconnect();
     }
