@@ -99,6 +99,9 @@ public class App {
         // Print list of top populated cities in a continent
         cityReport.getTopPopulatedCitiesInContinent(5, "South America");
 
+        // Print list of top populated cities in a region
+        cityReport.getTopPopulatedCitiesInRegion(5, "Southern Europe");
+
         // Disconnect from database
         a.disconnect();
     }
