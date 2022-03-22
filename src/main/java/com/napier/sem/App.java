@@ -84,7 +84,7 @@ public class App {
         System.out.println("\n\n--- City Reports --- \n");
 
         // Print list of top populated cities in British Islands by Region - Restricted to 5 to limit spam
-        cityReport.getTopPopulatedCities("British Islands",5);
+        cityReport.getTopPopulatedCitiesByRegion("British Islands",5);
 
         // Print list of top populated cities in the World - Restricted to 5 to limit spam
         cityReport.getTopPopulatedCities(5);

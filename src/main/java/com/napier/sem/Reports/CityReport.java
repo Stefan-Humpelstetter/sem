@@ -18,10 +18,9 @@ public class CityReport extends AReport {
     }
 
     /**
-     * Prints the n biggest cities in the given region
-     *
-     * @param n number of cities to be returned, when n = 0, all cities of region are returned
-     * @return list of n biggest cities in the given region
+     * Prints the n biggest cities of the world
+     * @param n number of cities to be returned, when n = 0, all cities are returned
+     * @return list of n biggest cities in the world
      */
     public ArrayList<City> getTopPopulatedCities(int n) {
         try {
@@ -29,36 +28,36 @@ public class CityReport extends AReport {
             Statement stmt = connection.createStatement();
 
             // Create string for SQL statement
-            String strSelect =
-                    "SELECT * " +
-                            "FROM city JOIN country ON city.CountryCode = country.Code " +
-                            "ORDER BY city.Population DESC " +
-                            (n > 0 ? "LIMIT " + n : "");
+            String strSelect = "SELECT * FROM city ORDER BY city.Population DESC " + (n > 0 ? "LIMIT " + n : "");
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
 
-            // Extract city information
             ArrayList<City> cities = new ArrayList<City>();
-            while (rset.next())
-                cities.add(new City(rset));
 
             // Print data
             System.out.println("\n" + (n > 0 ? n : "All") + " most populated cities in the world: ");
-            for (City city : cities) {
+            while (rset.next()) {
+                City city = new City(rset);
+                cities.add(city);
                 System.out.println(city.toString(true));
             }
-            ;
 
             return cities;
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get cities population information");
+            System.out.println("Failed to get cities information");
         }
         return null;
     }
 
-    public ArrayList<City> getTopPopulatedCities(String region, int n) {
+    /**
+     * Prints the n biggest cities in the given region
+     * @param region the region the report should be created for
+     * @param n number of cities to be returned, when n = 0, all cities of region are returned
+     * @return list of the n biggest cities in the given region
+     */
+    public ArrayList<City> getTopPopulatedCitiesByRegion(String region, int n) {
         try {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
@@ -84,7 +83,6 @@ public class CityReport extends AReport {
             for (City city : cities) {
                 System.out.println(city.toString(true));
             }
-            ;
 
             return cities;
         } catch (Exception e) {
