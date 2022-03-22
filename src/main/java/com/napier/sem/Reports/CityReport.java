@@ -40,7 +40,7 @@ public class CityReport extends AReport {
             while (rset.next()) {
                 City city = new City(rset);
                 cities.add(city);
-                System.out.println(city.toString(true));
+                System.out.println(city.toString(false));
             }
 
             return cities;
@@ -81,7 +81,7 @@ public class CityReport extends AReport {
             // Print data
             System.out.println("\n" + (n > 0 ? n : "All") + " most populated cities of the region " + region);
             for (City city : cities) {
-                System.out.println(city.toString(true));
+                System.out.println(city.toString(false));
             }
 
             return cities;
@@ -116,8 +116,43 @@ public class CityReport extends AReport {
             System.out.println("\nCities of " + countryName + ":");
             while (rset.next()) {
                 City city = new City(rset);
-                System.out.println(city.toString(true));
+                System.out.println(city.toString(false));
                 cities.add(city);
+            }
+
+            return cities;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get cities information");
+        }
+        return null;
+    }
+
+    /**
+     * Prints top N populated cities in a specific continent
+     * @param n number of cities to be returned
+     * @param continent the continent to analyse
+     * @return list of the cities of the report
+     */
+    public ArrayList<City> getTopPopulatedCitiesInContinent(int n, String continent) {
+        try {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+
+            // Create string for SQL statement
+            String strSelect = "SELECT * FROM city WHERE city.CountryCode = (SELECT country.Code FROM country WHERE country.Continent = '" + continent + "' LIMIT 1) ORDER BY city.Population DESC LIMIT " + n + ";";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            ArrayList<City> cities = new ArrayList<City>();
+
+            // Print data
+            System.out.println("\n" + n + " most populated cities in " + continent + ": ");
+            while (rset.next()) {
+                City city = new City(rset);
+                cities.add(city);
+                System.out.println(city.toString(false));
             }
 
             return cities;
