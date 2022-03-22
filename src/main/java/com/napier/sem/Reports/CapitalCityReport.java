@@ -134,7 +134,7 @@ public class CapitalCityReport extends AReport {
                 cities.add(new City(rset));
 
             // Print data
-            System.out.println("\n" + n + " most populated capital cities in countries in " + continent.toString() + ":");
+            System.out.println("\n" + n + " Most populated capital cities in countries in " + continent.toString() + ":");
             for (City city : cities){
                 System.out.println(city.toString(true));
             };

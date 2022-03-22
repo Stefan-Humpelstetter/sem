@@ -282,24 +282,24 @@ public class PopulationReport extends AReport{
             String strSelect =
                     "SELECT country.Region, SUM(city.Population) AS 'People living in a city', SUM(country.Population)-SUM(city.Population) AS 'People not living in a city' "+
                             "FROM city JOIN country ON city.CountryCode = country.Code " +
-                            "WHERE country.Region = '" + region +"'";
+                            "WHERE country.Region = '" + region +"' ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
 
             if (rset.next()){
-                int peopleInCity = rset.getInt("Population living In a city");
-                int peopleOutCity= rset.getInt("People not living in a city");
+                int peopleInCity = rset.getInt("People living in a city");
+                int peopleOutCity = rset.getInt("People not living in a city");
                 System.out.println("\nPopulation Report for people living in a city and out of a city in the "+ region + " region:");
                 float peopleInCityPercentage = ((float)peopleInCity/((float)peopleInCity+(float)peopleOutCity))*100;
                 float peopleOutCityPercentage = ((float)peopleOutCity/((float)peopleInCity+(float)peopleOutCity))*100;
                 System.out.println("Total population for the region: "+ (peopleInCity+peopleOutCity));
                 System.out.println("Total Population of people living in cities: " +
-                        +(peopleInCity)
+                        peopleInCity
                         +" ("
                         + peopleInCityPercentage
                         +"%)");
                 System.out.println("Total Population of people living out of a city: " +
-                        +(peopleOutCity)
+                        peopleOutCity
                         +" ("
                         + peopleOutCityPercentage
                         +"%)");
@@ -324,16 +324,16 @@ public class PopulationReport extends AReport{
             Statement stmt = connection.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT country.Name,country.Code, SUM(city.Population) AS 'People living In a City',country.Population-SUM(city.Population) AS 'People not living in City'"
-                            +"FROM city JOIN country ON city.CountryCode= country.Code"
-                            +"WHERE country.Name='" +countryName+ "'"
-                            +"GROUP by country.Code";
+                    "SELECT country.Name,country.Code, SUM(city.Population) AS 'People living In a City',country.Population-SUM(city.Population) AS 'People not living in City' "
+                            +"FROM city JOIN country ON city.CountryCode= country.Code "
+                            +"WHERE country.Name='" +countryName+ "' "
+                            +"GROUP by country.Code ";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
 
             if (rset.next()){
-                int peopleInCity = rset.getInt("Population living In a City");
-                int peopleOutCity= rset.getInt("People not living in a City");
+                int peopleInCity = rset.getInt("People living In a City");
+                int peopleOutCity= rset.getInt("People not living in City");
                 System.out.println("\nPopulation Report for people living in a city and out of a city in " + countryName);
                 float peopleInCityPercentage = ((float)peopleInCity/((float)peopleInCity+(float)peopleOutCity))*100;
                 float peopleOutCityPercentage = ((float)peopleOutCity/((float)peopleInCity+(float)peopleOutCity))*100;
