@@ -92,6 +92,9 @@ public class App {
         // Print list of the cities of Austria ordered by population from largest to smallest
         cityReport.getCitiesByCountry("Austria");
 
+        // Print list of top populated cities in a continent
+        cityReport.getTopPopulatedCitiesInContinent(5, "South America");
+
         // Disconnect from database
         a.disconnect();
     }
