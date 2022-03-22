@@ -17,7 +17,6 @@ jobs:
           distribution: 'adopt'
       - name: Unit Tests
         run: |
-          docker-compose up --abort-on-container-exit
           mvn -Dtest=com.napier.sem.CapitalCityTest test
       - name: Package and Run docker compose
         run: |

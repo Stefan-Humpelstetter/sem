@@ -21,7 +21,10 @@ public class CapitalCityTest {
     static void init()
     {
         app = new App();
-        app.connect();
+
+        // Connect to database
+        app.connect("localhost:33060", 30000);
+
         capitalCityReport = new CapitalCityReport(app.getConnection());
     }
 
