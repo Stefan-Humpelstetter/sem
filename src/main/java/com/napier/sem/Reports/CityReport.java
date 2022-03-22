@@ -198,4 +198,38 @@ public class CityReport extends AReport {
         return null;
     }
 
+    /**
+     * Prints top N populated cities in a specific country
+     * @param n number of cities to be returned
+     * @param country the region to analyse
+     * @return list of the cities of the report
+     */
+    public ArrayList<City> getTopPopulatedCitiesInCountry(int n, String country) {
+        try {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+
+            // Create string for SQL statement
+            String strSelect = "SELECT * FROM city WHERE city.CountryCode = (SELECT country.Code FROM country WHERE country.Name = '" + country + "') ORDER BY city.Population DESC LIMIT " + n + ";";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            ArrayList<City> cities = new ArrayList<City>();
+
+            // Print data
+            System.out.println("\n" + n + " most populated cities in " + country + ": ");
+            while (rset.next()) {
+                City city = new City(rset);
+                cities.add(city);
+                System.out.println(city.toString(false));
+            }
+
+            return cities;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get cities information");
+        }
+        return null;
+    }
 }
