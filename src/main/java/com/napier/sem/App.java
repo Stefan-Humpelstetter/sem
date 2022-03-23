@@ -50,8 +50,13 @@ public class App {
         // Print the top N populated capital cities in a given continent
         capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Oceania, 4);
 
-        // Print the capital cities for a continent ordered from largest population to smallest (limited to 5 for better visibility of the code)
-        capitalCityReport.getTopNPopulatedCapitalCitiesInAContinentFromLargestToSmallest(Continent.Asia,5)
+        // Print the capital cities for a continent ordered from largest population to smallest (limited to 5 for better visibility of the results)
+        capitalCityReport.getTopNPopulatedCapitalCitiesInAContinentFromLargestToSmallest(Continent.Asia,5);
+
+        // Print list of most populated capital cities in the world from large to small(population) (limited to 5 results for better visibility of the results)
+        capitalCityReport.getTopNPopulatedCapitalCitiesInTheWorldFromLargeToSmall(5);
+
+
 
         System.out.println("\n\n--- Population Reports ---");
 
@@ -110,6 +115,7 @@ public class App {
 
         // Print list of N top populated cities in a certain district
         cityReport.getTopNPopulatedCitiesInADistrict(5,"Noord-Brabant");
+
 
 
 

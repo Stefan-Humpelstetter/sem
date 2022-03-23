@@ -147,6 +147,12 @@ public class CapitalCityReport extends AReport {
         }
         return null;
     }
+    /**
+     * Prints the n top populated capital cities in the given continent from largest to smallest by population
+     * @param continent the name of the continent
+     * @param n number of top populated capital cities to be returned
+     * @return ordered list of n top populated capital cities in the given continent
+     */
     public ArrayList<City> getTopNPopulatedCapitalCitiesInAContinentFromLargestToSmallest(Continent continent, int n) {
         try {
             // Create an SQL statement
@@ -170,7 +176,7 @@ public class CapitalCityReport extends AReport {
                 cities.add(new City(rset));
 
             // Print data
-            System.out.println("\n" + n + " Most populated capital cities in countries in " + continent.toString() + " from largest to smallest:");
+            System.out.println("\n Most populated capital cities in " + continent.toString() + " from largest to smallest:");
             for (City city : cities){
                 System.out.println(city.toString(true));
             };
@@ -184,4 +190,43 @@ public class CapitalCityReport extends AReport {
         return null;
     }
 
+    /**
+     * Prints the n top populated capital cities in the world from largest to smallest by population
+     * @param n number of top populated capital cities to be showed (for concvenience)
+     * @return ordered list of n top populated capital cities in the world
+     */
+    public ArrayList<City> getTopNPopulatedCapitalCitiesInTheWorldFromLargeToSmall(int n) {
+        try {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT *" +
+                    "FROM city JOIN country ON city.CountryCode = country.Code" +
+                    "WHERE  city.ID IN (SELECT Capital FROM country)" +
+                    "ORDER BY city.Population DESC" +
+                    "LIMIT "+ n;
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            // Extract capital city information
+            ArrayList<City> cities = new ArrayList<City>();
+            while (rset.next())
+                cities.add(new City(rset));
+
+            // Print data
+            System.out.println("\n Most populated capital cities in the world from largest to smallest:");
+            for (City city : cities){
+                System.out.println(city.toString(true));
+            };
+
+            return cities;
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get capital cities population information");
+        }
+        return null;
+    }
 }

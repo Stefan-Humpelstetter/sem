@@ -232,6 +232,13 @@ public class CityReport extends AReport {
         }
         return null;
     }
+
+    /**
+     * Prints top N populated cities in a specific district
+     * @param n number of cities to be returned
+     * @param district the district to analyse
+     * @return list of the  top n populated cities in given district
+     */
     public ArrayList<City> getTopNPopulatedCitiesInADistrict (int n, String district) {
         try {
             // Create an SQL statement
