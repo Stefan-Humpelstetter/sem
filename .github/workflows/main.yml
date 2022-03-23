@@ -17,8 +17,10 @@ jobs:
           distribution: 'adopt'
       - name: Unit Tests
         run: |
-          mvn -Dtest=com.napier.sem.LanguageTest test
           mvn -Dtest=com.napier.sem.CapitalCityUnitTest test
+          mvn -Dtest=com.napier.sem.LanguageUnitTest test
+          mvn -Dtest=com.napier.sem.CountryUnitTest test
+          mvn -Dtest=com.napier.sem.PopulationUnitTest test
 
   IntegrationTests:
     name: Integration Tests
@@ -39,9 +41,9 @@ jobs:
           docker run --name world -dp 33060:3306 database
           mvn -Dtest=com.napier.sem.CapitalCityIntegrationTest test
           mvn -Dtest=com.napier.sem.CityTest test
-          mvn -Dtest=com.napier.sem.CountryTest test
-          mvn -Dtest=com.napier.sem.LanguageTest test
-          mvn -Dtest=com.napier.sem.PopulationTest test
+          mvn -Dtest=com.napier.sem.CountryIntegrationTest test
+          mvn -Dtest=com.napier.sem.LanguageIntegrationTest test
+          mvn -Dtest=com.napier.sem.PopulationIntegrationTest test
           docker stop world
           docker rm world
           docker image rm database   

@@ -1,12 +1,13 @@
 package com.napier.sem;
 
 import com.napier.sem.Reports.LanguageReport;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class LanguageTest {
+public class LanguageIntegrationTest {
     private static LanguageReport languageReport;
     static App app;
 
@@ -56,5 +57,10 @@ public class LanguageTest {
         // Test number of Arabic speakers returned
         int languageSpeakers = languageReport.getLanguagesAmountAndPercentage().get("Arabic");
         assertEquals(233839238, languageSpeakers);
+    }
+
+    @AfterAll
+    static void afterAll() {
+        app.disconnect();
     }
 }
