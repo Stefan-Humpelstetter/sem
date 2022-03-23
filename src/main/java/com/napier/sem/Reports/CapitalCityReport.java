@@ -26,7 +26,7 @@ public class CapitalCityReport extends AReport {
      * @param n
      * @return list of top n populated capital cities
      */
-    public ArrayList<City> getTopPopulatedCapitalCities (int n){
+    public ArrayList<City> getTopPopulatedCapitalCities(int n){
         try
         {
             // Create an SQL statement
@@ -70,7 +70,7 @@ public class CapitalCityReport extends AReport {
      * @param n number of cities to be returned, when n = 0, all cities of region are returned
      * @return list of n biggest cities in the given region
      */
-    public ArrayList<City> getTopPopulatedCapitalCities(String region, int n) {
+    public ArrayList<City> getTopPopulatedCapitalCitiesForRegion(String region, int n) {
         try {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
@@ -203,9 +203,9 @@ public class CapitalCityReport extends AReport {
             // Create string for SQL statement
             String strSelect =
                     "SELECT *" +
-                    "FROM city JOIN country ON city.CountryCode = country.Code" +
-                    "WHERE  city.ID IN (SELECT Capital FROM country)" +
-                    "ORDER BY city.Population DESC" +
+                    "FROM city JOIN country ON city.CountryCode = country.Code " +
+                    "WHERE  city.ID IN (SELECT Capital FROM country) " +
+                    "ORDER BY city.Population DESC " +
                     "LIMIT "+ n;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
