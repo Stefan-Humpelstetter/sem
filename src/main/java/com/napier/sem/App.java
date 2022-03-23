@@ -50,6 +50,9 @@ public class App {
         // Print the top N populated capital cities in a given continent
         capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Oceania, 4);
 
+        // Print the capital cities for a continent ordered from largest population to smallest (limited to 5 for better visibility of the code)
+        capitalCityReport.getTopNPopulatedCapitalCitiesInAContinentFromLargestToSmallest(Continent.Asia,5)
+
         System.out.println("\n\n--- Population Reports ---");
 
         // Print report for people living in cities for continent 'Europe'
@@ -105,8 +108,10 @@ public class App {
         // Print list of top populated cities in a country
         cityReport.getTopPopulatedCitiesInCountry(5, "Italy");
 
-        // Print list of N top population in a district
+        // Print list of N top populated cities in a certain district
         cityReport.getTopNPopulatedCitiesInADistrict(5,"Noord-Brabant");
+
+
 
         // Disconnect from database
         a.disconnect();

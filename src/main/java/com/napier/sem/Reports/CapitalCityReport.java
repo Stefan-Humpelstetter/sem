@@ -147,4 +147,41 @@ public class CapitalCityReport extends AReport {
         }
         return null;
     }
+    public ArrayList<City> getTopNPopulatedCapitalCitiesInAContinentFromLargestToSmallest(Continent continent, int n) {
+        try {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT *" +
+                            "FROM city JOIN country ON city.CountryCode = country.Code " +
+                            "WHERE  city.ID IN (SELECT Capital FROM country) " +
+                            "AND country.Continent= '"+continent.toString()+"' " +
+                            "ORDER BY city.Population DESC " +
+                            "LIMIT " + n;
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            // Extract capital city information
+            ArrayList<City> cities = new ArrayList<City>();
+            while (rset.next())
+                cities.add(new City(rset));
+
+            // Print data
+            System.out.println("\n" + n + " Most populated capital cities in countries in " + continent.toString() + " from largest to smallest:");
+            for (City city : cities){
+                System.out.println(city.toString(true));
+            };
+
+            return cities;
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get capital cities population information");
+        }
+        return null;
+    }
+
 }
