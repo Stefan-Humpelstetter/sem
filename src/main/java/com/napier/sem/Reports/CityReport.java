@@ -232,4 +232,37 @@ public class CityReport extends AReport {
         }
         return null;
     }
+    public ArrayList<City> getTopNPopulatedCitiesInADistrict (int n, String district) {
+        try {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+
+            // Create string for SQL statement
+            String strSelect = "SELECT name,population" +
+                    "FROM city" +
+                    "WHERE District ='" + district +"' "+
+                    "GROUP BY population,name" +
+                    "LIMIT " + n ;
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            ArrayList<City> cities = new ArrayList<City>();
+
+            // Print data
+            System.out.println("\n Top " + n + " populated cities in the " + district + " district: ");
+            while (rset.next()) {
+                City city = new City(rset);
+                cities.add(city);
+                System.out.println(city.toString(false));
+            }
+
+            return cities;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get cities information");
+        }
+        return null;
+    }
+
 }

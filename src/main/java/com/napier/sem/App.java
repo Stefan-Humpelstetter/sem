@@ -103,7 +103,10 @@ public class App {
         cityReport.getTopPopulatedCitiesInRegion(5, "Southern Europe");
 
         // Print list of top populated cities in a country
-        cityReport.getTopPopulatedCitiesInRegion(5, "Italy");
+        cityReport.getTopPopulatedCitiesInCountry(5, "Italy");
+
+        // Print list of N top population in a district
+        cityReport.getTopNPopulatedCitiesInADistrict(5,"Noord-Brabant");
 
         // Disconnect from database
         a.disconnect();
