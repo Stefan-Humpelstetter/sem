@@ -64,32 +64,32 @@ public class PopulationTest {
     @Test
     void testPopulationByContinent()
     {
+        // Test total continent population
         int value = populationReport.printPopulationReportForPeopleLivingInCitiesByContinent(Continent.Europe).get(0);
-        // Test total region population
         assertEquals(730074600, value);
     }
 
     @Test
     void testPopulationInCityByContinent()
     {
+        // Test total continent population of people living inside city
         int value = populationReport.printPopulationReportForPeopleLivingInCitiesByContinent(Continent.Europe).get(1);
-        // Test total region population
         assertEquals(241942813, value);
     }
 
     @Test
     void testPopulationOutCityByContinent()
     {
+        // Test total continent population of people living outside city
         int value = populationReport.printPopulationReportForPeopleLivingInCitiesByContinent(Continent.Europe).get(2);
-        // Test total region population
         assertEquals(488131787, value);
     }
 
     @Test
     void testPopulationByRegion()
     {
-        int value = populationReport.getPopulationOfPeopleLivingInAndOutACityByRegion("Caribbean").get(0);
         // Test total region population
+        int value = populationReport.getPopulationOfPeopleLivingInAndOutACityByRegion("Caribbean").get(0);
         assertEquals(288771000, value);
     }
 

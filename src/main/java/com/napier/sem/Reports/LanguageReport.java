@@ -1,11 +1,10 @@
 package com.napier.sem.Reports;
 
-import com.napier.sem.Models.City;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LanguageReport extends AReport {
     /**
@@ -20,7 +19,8 @@ public class LanguageReport extends AReport {
     /**
      * Creates language report for Chinese, English, Hindi and Spanish
      */
-    public void getLanguagesAmountAndPercentage(){
+    public Map<String, Integer> getLanguagesAmountAndPercentage(){
+        Map<String, Integer> languageMap = new HashMap<>();
         try {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
@@ -41,12 +41,17 @@ public class LanguageReport extends AReport {
             ResultSet rset = stmt.executeQuery(strSelect);
 
             // print rows
-            while (rset.next())
-                System.out.println(rset.getString("language")+" - Amount: "+rset.getInt("amount")+" | Percentage: "+rset.getFloat("percentage"));;
-
-        } catch (Exception e) {
+            while (rset.next()) {
+                String language = rset.getString("language");
+                int population = rset.getInt("amount");
+                languageMap.put(language, population);
+                System.out.println(language + " - Amount: " + population + " | Percentage: " + rset.getFloat("percentage"));
+            }
+        }
+        catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get language information");
         }
+        return languageMap;
     }
 }
