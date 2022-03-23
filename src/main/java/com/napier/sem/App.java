@@ -116,8 +116,10 @@ public class App {
         // Print list of N top populated cities in a certain district
         cityReport.getTopNPopulatedCitiesInADistrict(5,"Noord-Brabant");
 
+        System.out.println("\n\n--- Country Reports --- \n");
 
-
+        // Print list of N top populated countries in the world
+        countryReport.getTopPopulatedCountries(4);
 
         // Disconnect from database
         a.disconnect();
