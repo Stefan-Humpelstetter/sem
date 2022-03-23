@@ -45,8 +45,7 @@ public class PopulationReport extends AReport{
                 return population;
             }
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get world population details");
         }
@@ -79,8 +78,7 @@ public class PopulationReport extends AReport{
                 return population;
             }
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get continent population details");
         }
@@ -111,8 +109,7 @@ public class PopulationReport extends AReport{
                 return population;
             }
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get region population details");
         }
@@ -180,8 +177,7 @@ public class PopulationReport extends AReport{
                 return population;
             }
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get district population details");
         }
@@ -216,8 +212,7 @@ public class PopulationReport extends AReport{
                 return population;
             }
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country population details");
         }
@@ -269,8 +264,7 @@ public class PopulationReport extends AReport{
                         +"%)");
             }
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get the continents population report data");
         }
@@ -317,8 +311,7 @@ public class PopulationReport extends AReport{
                 populationValues.add(peopleOutCity);
             }
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get the region population report data");
         }
@@ -366,8 +359,7 @@ public class PopulationReport extends AReport{
                 populationValues.add(peopleOutCity);
             }
         }
-        catch (Exception e)
-        {
+        catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get the country population report data");
         }
