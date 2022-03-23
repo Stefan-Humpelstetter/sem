@@ -114,7 +114,7 @@ public class App {
         cityReport.getTopPopulatedCitiesInCountry(5, "Italy");
 
         // Print list of N top populated cities in a certain district
-        cityReport.getTopNPopulatedCitiesInADistrict(5,"Noord-Brabant");
+        cityReport.getTopNPopulatedCitiesInADistrict(3,"Noord-Brabant");
 
 
 

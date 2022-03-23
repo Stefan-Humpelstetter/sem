@@ -245,8 +245,8 @@ public class CityReport extends AReport {
             Statement stmt = connection.createStatement();
 
             // Create string for SQL statement
-            String strSelect = "SELECT name,population" +
-                    "FROM city" +
+            String strSelect = "SELECT name,population " +
+                    "FROM city " +
                     "WHERE District ='" + district +"' "+
                     "GROUP BY population,name" +
                     "LIMIT " + n ;
