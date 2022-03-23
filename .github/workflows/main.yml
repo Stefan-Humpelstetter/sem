@@ -19,6 +19,7 @@ jobs:
         run: |
           mvn -Dtest=com.napier.sem.CapitalCityUnitTest test
           mvn -Dtest=com.napier.sem.LanguageUnitTest test
+          mvn -Dtest=com.napier.sem.PopulationUnitTest test
 
   IntegrationTests:
     name: Integration Tests
@@ -41,7 +42,7 @@ jobs:
           mvn -Dtest=com.napier.sem.CityTest test
           mvn -Dtest=com.napier.sem.CountryTest test
           mvn -Dtest=com.napier.sem.LanguageIntegrationTest test
-          mvn -Dtest=com.napier.sem.PopulationTest test
+          mvn -Dtest=com.napier.sem.PopulationIntegrationTest test
           docker stop world
           docker rm world
           docker image rm database   

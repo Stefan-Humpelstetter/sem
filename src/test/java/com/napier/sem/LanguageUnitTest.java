@@ -4,8 +4,6 @@ import com.napier.sem.Reports.LanguageReport;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class LanguageUnitTest {
     private static LanguageReport languageReport;
 
@@ -16,7 +14,7 @@ public class LanguageUnitTest {
 
     @Test
     void testGetLanguagesAmountAndPercentage() {
-        // test if program does not crash when there is no connection
+        //Test if program does not crash when there is no connection
         languageReport.getLanguagesAmountAndPercentage();
     }
 }
