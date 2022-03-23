@@ -5,6 +5,7 @@ import com.napier.sem.Models.Continent;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 /**
  * this class contains methods to create reports for populations
@@ -228,7 +229,8 @@ public class PopulationReport extends AReport{
      * prints the total amount (and %) of people from a continent not living in a city
      * @param continent contintent the report needs to be created for
      */
-    public void printPopulationReportForPeopleLivingInCitiesByContinent(Continent continent){
+    public ArrayList<Integer> printPopulationReportForPeopleLivingInCitiesByContinent(Continent continent){
+        ArrayList<Integer> populationValues = new ArrayList<Integer>();
         try
         {
             // Create an SQL statement
@@ -243,8 +245,13 @@ public class PopulationReport extends AReport{
             ResultSet rset = stmt.executeQuery(strSelect);
 
             if (rset.next()){
+
                 int totalPopulation = rset.getInt("Population Total");
                 int cityPopulation = rset.getInt("Population City");
+
+                populationValues.add(totalPopulation);
+                populationValues.add(cityPopulation);
+                populationValues.add((totalPopulation-cityPopulation));
 
                 System.out.println("\nPopulation Report from Continent "+continent+":");
                 System.out.println("Total Population: "+totalPopulation);
@@ -267,13 +274,15 @@ public class PopulationReport extends AReport{
             System.out.println(e.getMessage());
             System.out.println("Failed to get the continents population report data");
         }
+        return populationValues;
     }
     /**
      * Prints the population (and %) of a given region, which lives in a city
      * Prints the population (and %) of a given region, which does not live in a city
      * @param region region needed for the report to be created
      */
-    public void getPopulationOfPeopleLivingInAndOutACityByRegion(String region){
+    public ArrayList<Integer> getPopulationOfPeopleLivingInAndOutACityByRegion(String region){
+        ArrayList<Integer> populationValues = new ArrayList<Integer>();
         try
         {
             // Create an SQL statement
@@ -303,7 +312,9 @@ public class PopulationReport extends AReport{
                         +" ("
                         + peopleOutCityPercentage
                         +"%)");
-
+                populationValues.add((peopleInCity + peopleOutCity));
+                populationValues.add(peopleInCity);
+                populationValues.add(peopleOutCity);
             }
         }
         catch (Exception e)
@@ -311,13 +322,15 @@ public class PopulationReport extends AReport{
             System.out.println(e.getMessage());
             System.out.println("Failed to get the region population report data");
         }
+        return populationValues;
     }
     /**
      * Prints the population(and %) of a given country, which lives in a city
      * Prints the population(and %) of a given country, which does not live in a city
      * @param countryName needed for the population report to be created
      */
-    public void getPopulationOfPeopleLivingInAndOutACityByCountry(String countryName){
+    public ArrayList<Integer> getPopulationOfPeopleLivingInAndOutACityByCountry(String countryName){
+        ArrayList<Integer> populationValues = new ArrayList<Integer>();
         try
         {
             // Create an SQL statement
@@ -348,7 +361,9 @@ public class PopulationReport extends AReport{
                         +" ("
                         + peopleOutCityPercentage
                         +"%)");
-
+                populationValues.add((peopleInCity + peopleOutCity));
+                populationValues.add(peopleInCity);
+                populationValues.add(peopleOutCity);
             }
         }
         catch (Exception e)
@@ -356,5 +371,6 @@ public class PopulationReport extends AReport{
             System.out.println(e.getMessage());
             System.out.println("Failed to get the country population report data");
         }
+        return populationValues;
     }
 }
