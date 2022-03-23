@@ -2,6 +2,7 @@ package com.napier.sem;
 
 import com.napier.sem.Models.Continent;
 import com.napier.sem.Reports.PopulationReport;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -135,4 +136,8 @@ public class PopulationTest {
         assertEquals(5493985, value);
     }
 
+    @AfterAll
+    static void afterAll() {
+        app.disconnect();
+    }
 }
