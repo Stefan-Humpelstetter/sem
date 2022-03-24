@@ -100,7 +100,7 @@ public class CityIntegrationTest {
 
     @Test
     void testGetTopNPopulatedCitiesInADistrict() {
-        ArrayList<City> cities = cityReport.getTopNPopulatedCitiesInADistrict(3,"Italy");
+        ArrayList<City> cities = cityReport.getTopNPopulatedCitiesInADistrict(3,"Noord-Brabant");
 
         // test if return list has correct size
         assertEquals(3, cities.size());
