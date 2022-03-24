@@ -26,11 +26,11 @@ public class City extends AModel {
         if (rset.isBeforeFirst())
             rset.next();
 
-        this.id = rset.getInt("id");
-        this.name = rset.getString("name");
-        this.countryCode = rset.getString("countrycode");
-        this.district = rset.getString("district");
-        this.population = rset.getInt("population");
+        this.id = rset.getInt("ID");
+        this.name = rset.getString("Name");
+        this.countryCode = rset.getString("CountryCode");
+        this.district = rset.getString("District");
+        this.population = rset.getInt("Population");
     }
 
     /**

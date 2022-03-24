@@ -79,8 +79,8 @@ public class CityIntegrationTest {
 
         // test to see if list has correct values
         assertEquals("Madrid", cities.get(0).name);
-        assertEquals(2643581, cities.get(2).population);
-        assertEquals(1266461, cities.get(1).population);
+        assertEquals(2643581, cities.get(1).population);
+        assertEquals(1503451, cities.get(2).population);
         assertEquals("ITA", cities.get(3).countryCode);
 
     }
@@ -93,29 +93,21 @@ public class CityIntegrationTest {
 
         // test to see if list has correct values
         assertEquals("Roma", cities.get(0).name);
-        assertEquals(1002619, cities.get(2).population);
         assertEquals(1300977, cities.get(1).population);
+        assertEquals(1002619, cities.get(2).population);
         assertEquals("ITA", cities.get(3).countryCode);
     }
     
-//    @Test
-//    void testGetTopNPopulatedCitiesInADistrict() {
-//        ArrayList<City> cities = cityReport.getTopNPopulatedCitiesInADistrict(3,"Italy");
-//
-//        // test if return list has correct size
-//        assertEquals(3, cities.size());
-//
-//        // test to see if list has correct values
-//        assertEquals("Roma", cities.get(0).name);
-//        assertEquals(1002619, cities.get(2).population);
-//        assertEquals(1300977, cities.get(1).population);
-//        assertEquals("ITA", cities.get(3).countryCode);
-//
-//    }
-//
+    @Test
+    void testGetTopNPopulatedCitiesInADistrict() {
+        ArrayList<City> cities = cityReport.getTopNPopulatedCitiesInADistrict(3,"England");
 
+        // test if return list has correct size
+        assertEquals(3, cities.size());
 
-
-
-
+        // test to see if list has correct values
+        assertEquals("London", cities.get(0).name);
+        assertEquals(7285000, cities.get(0).population);
+        assertEquals(1013000, cities.get(1).population);
+    }
 }

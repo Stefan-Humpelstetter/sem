@@ -19,6 +19,7 @@ public class CityReport extends AReport {
 
     /**
      * Prints the n biggest cities of the world
+     *
      * @param n number of cities to be returned, when n = 0, all cities are returned
      * @return list of n biggest cities in the world
      */
@@ -53,8 +54,9 @@ public class CityReport extends AReport {
 
     /**
      * Prints the n biggest cities in the given region
+     *
      * @param region the region the report should be created for
-     * @param n number of cities to be returned, when n = 0, all cities of region are returned
+     * @param n      number of cities to be returned, when n = 0, all cities of region are returned
      * @return list of the n biggest cities in the given region
      */
     public ArrayList<City> getTopPopulatedCitiesByRegion(String region, int n) {
@@ -94,6 +96,7 @@ public class CityReport extends AReport {
 
     /**
      * Generate report for all the cities of a country ordered by population
+     *
      * @param countryName the name of the country the report should be made for
      * @return list of the cities of the report
      */
@@ -130,7 +133,8 @@ public class CityReport extends AReport {
 
     /**
      * Prints top N populated cities in a specific continent
-     * @param n number of cities to be returned
+     *
+     * @param n         number of cities to be returned
      * @param continent the continent to analyse
      * @return list of the cities of the report
      */
@@ -165,7 +169,8 @@ public class CityReport extends AReport {
 
     /**
      * Prints top N populated cities in a specific region
-     * @param n number of cities to be returned
+     *
+     * @param n      number of cities to be returned
      * @param region the region to analyse
      * @return list of the cities of the report
      */
@@ -200,7 +205,8 @@ public class CityReport extends AReport {
 
     /**
      * Prints top N populated cities in a specific country
-     * @param n number of cities to be returned
+     *
+     * @param n       number of cities to be returned
      * @param country the region to analyse
      * @return list of the cities of the report
      */
@@ -235,42 +241,44 @@ public class CityReport extends AReport {
 
     /**
      * Prints top N populated cities in a specific district
-     * @param n number of cities to be returned
+     *
+     * @param n        number of cities to be returned
      * @param district the district to analyse
      * @return list of the  top n populated cities in given district
      */
-    public ArrayList<City> getTopNPopulatedCitiesInADistrict (int n, String district) {
+    public ArrayList<City> getTopNPopulatedCitiesInADistrict(int n, String district) {
         try {
             // Create an SQL statement
             Statement stmt = connection.createStatement();
 
             // Create string for SQL statement
-            String strSelect = "SELECT name,population " +
-                    "FROM city " +
-                    "WHERE District ='" + district +"' "+
-                    "GROUP BY population, name " +
-                    "LIMIT " + n ;
-
+            String strSelect =
+                    "SELECT *" +
+                            "FROM city " +
+                            "WHERE District = '" + district + "' " +
+                            "ORDER BY Population DESC " +
+                            "LIMIT " + n;
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
 
+            // Extract capital city information
             ArrayList<City> cities = new ArrayList<City>();
+            while (rset.next())
+                cities.add(new City(rset));
 
             // Print data
-            System.out.println("\n Top " + n + " populated cities in the " + district + " district: ");
-            while (rset.next()) {
-                City city = new City(rset);
-                cities.add(city);
-                System.out.println(city.toString(false));
+            System.out.println("\n Most populated capital cities in the world from largest to smallest:");
+            for (City city : cities) {
+                System.out.println(city.toString(true));
             }
+            ;
 
             return cities;
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get cities information");
+            System.out.println("Failed to get capital cities population information");
         }
         return null;
     }
-
-
 }

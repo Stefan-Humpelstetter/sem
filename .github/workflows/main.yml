@@ -40,7 +40,7 @@ jobs:
           docker build -t database ./db 
           docker run --name world -dp 33060:3306 database
           mvn -Dtest=com.napier.sem.CapitalCityIntegrationTest test
-          mvn -Dtest=com.napier.sem.CityTest test
+          mvn -Dtest=com.napier.sem.CityIntegrationTest test
           mvn -Dtest=com.napier.sem.CountryIntegrationTest test
           mvn -Dtest=com.napier.sem.LanguageIntegrationTest test
           mvn -Dtest=com.napier.sem.PopulationIntegrationTest test
