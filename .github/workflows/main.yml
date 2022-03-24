@@ -21,6 +21,7 @@ jobs:
           mvn -Dtest=com.napier.sem.LanguageUnitTest test
           mvn -Dtest=com.napier.sem.CountryUnitTest test
           mvn -Dtest=com.napier.sem.PopulationUnitTest test
+          mvn -Dtest=com.napier.sem.CityUnitTest test
 
   IntegrationTests:
     name: Integration Tests
