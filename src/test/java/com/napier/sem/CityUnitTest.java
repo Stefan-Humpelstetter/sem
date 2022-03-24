@@ -1,6 +1,5 @@
 package com.napier.sem;
 
-import com.napier.sem.Reports.CapitalCityReport;
 import com.napier.sem.Reports.CityReport;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
