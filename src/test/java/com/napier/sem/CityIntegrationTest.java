@@ -79,8 +79,8 @@ public class CityIntegrationTest {
 
         // test to see if list has correct values
         assertEquals("Madrid", cities.get(0).name);
-        assertEquals(2643581, cities.get(2).population);
-        assertEquals(1266461, cities.get(1).population);
+        assertEquals(1503451, cities.get(2).population);
+        assertEquals(2643581, cities.get(1).population);
         assertEquals("ITA", cities.get(3).countryCode);
 
     }
@@ -109,7 +109,7 @@ public class CityIntegrationTest {
         assertEquals("Eindhoven", cities.get(0).name);
         assertEquals(160398, cities.get(2).population);
         assertEquals(193238, cities.get(1).population);
-        assertEquals("NLD", cities.get(3).countryCode);
+        assertEquals("NLD", cities.get(2).countryCode);
 
     }
 
