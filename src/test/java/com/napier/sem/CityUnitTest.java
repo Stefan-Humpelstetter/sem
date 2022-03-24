@@ -37,9 +37,9 @@ public class CityUnitTest {
     void testGetTopPopulatedCitiesInCountry() {
         cityReport.getTopPopulatedCitiesInCountry(-1,null);
     }
-//    @Test
-//    void testGetTopNPopulatedCitiesInADistrict() {
-//        cityReport.getTopNPopulatedCitiesInADistrict(0,null);
-//    }
+    @Test
+    void testGetTopNPopulatedCitiesInADistrict() {
+        cityReport.getTopNPopulatedCitiesInADistrict(0,null);
+    }
 
 }

@@ -97,22 +97,22 @@ public class CityIntegrationTest {
         assertEquals(1300977, cities.get(1).population);
         assertEquals("ITA", cities.get(3).countryCode);
     }
-    
-//    @Test
-//    void testGetTopNPopulatedCitiesInADistrict() {
-//        ArrayList<City> cities = cityReport.getTopNPopulatedCitiesInADistrict(3,"Italy");
-//
-//        // test if return list has correct size
-//        assertEquals(3, cities.size());
-//
-//        // test to see if list has correct values
-//        assertEquals("Roma", cities.get(0).name);
-//        assertEquals(1002619, cities.get(2).population);
-//        assertEquals(1300977, cities.get(1).population);
-//        assertEquals("ITA", cities.get(3).countryCode);
-//
-//    }
-//
+
+    @Test
+    void testGetTopNPopulatedCitiesInADistrict() {
+        ArrayList<City> cities = cityReport.getTopNPopulatedCitiesInADistrict(3,"Italy");
+
+        // test if return list has correct size
+        assertEquals(3, cities.size());
+
+        // test to see if list has correct values
+        assertEquals("Eindhoven", cities.get(0).name);
+        assertEquals(160398, cities.get(2).population);
+        assertEquals(193238, cities.get(1).population);
+        assertEquals("NLD", cities.get(3).countryCode);
+
+    }
+
 
 
 
