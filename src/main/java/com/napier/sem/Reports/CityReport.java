@@ -248,7 +248,7 @@ public class CityReport extends AReport {
             String strSelect = "SELECT * " +
                     "FROM city " +
                     "WHERE District ='" + district +"' "+
-                    "GROUP BY population, name " +
+                    "ORDER BY population DESC " +
                     "LIMIT " + n ;
 
             // Execute SQL statement
