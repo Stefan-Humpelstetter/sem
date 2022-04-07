@@ -15,6 +15,9 @@ public class CountryIntegrationTest {
     private static App app;
     private static CountryReport countryReport;
 
+    /**
+     * Integration test initialisation
+     */
     @BeforeAll
     static void init() {
         app = new App();
@@ -25,6 +28,9 @@ public class CountryIntegrationTest {
         countryReport = new CountryReport(app.getConnection());
     }
 
+    /**
+     * Integration test for the getTopPopulatedCountries() method
+     */
     @Test
     void testGetTopPopulatedCountries(){
         ArrayList<Country> countries = countryReport.getTopPopulatedCountries(4);
@@ -39,7 +45,9 @@ public class CountryIntegrationTest {
         assertEquals("Indonesia", countries.get(3).name);
     }
 
-
+    /**
+     * After integration test
+     */
     @AfterAll
     static void afterAll() {
         app.disconnect();

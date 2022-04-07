@@ -11,6 +11,9 @@ public class LanguageIntegrationTest {
     private static LanguageReport languageReport;
     static App app;
 
+    /**
+     * Integration test initialisation
+     */
     @BeforeAll
     static void init()
     {
@@ -19,6 +22,9 @@ public class LanguageIntegrationTest {
         languageReport = new LanguageReport(app.getConnection());
     }
 
+    /**
+     * Integration test for the getLanguagesAmountAndPercentage() method for the language 'Chinese'
+     */
     @Test
     void testChineseSpeakers()
     {
@@ -27,6 +33,9 @@ public class LanguageIntegrationTest {
         assertEquals(1191843539, languageSpeakers);
     }
 
+    /**
+     * Integration test for the getLanguagesAmountAndPercentage() method for the language 'Hindi'
+     */
     @Test
     void testHindiSpeakers()
     {
@@ -35,6 +44,9 @@ public class LanguageIntegrationTest {
         assertEquals(405633070, languageSpeakers);
     }
 
+    /**
+     * Integration test for the getLanguagesAmountAndPercentage() method for the language 'Spanish'
+     */
     @Test
     void testSpanishSpeakers()
     {
@@ -43,6 +55,9 @@ public class LanguageIntegrationTest {
         assertEquals(355029462, languageSpeakers);
     }
 
+    /**
+     * Integration test for the getLanguagesAmountAndPercentage() method for the language 'English'
+     */
     @Test
     void testEnglishSpeakers()
     {
@@ -51,6 +66,9 @@ public class LanguageIntegrationTest {
         assertEquals(347077867, languageSpeakers);
     }
 
+    /**
+     * Integration test for the getLanguagesAmountAndPercentage() method for the language 'Arabic'
+     */
     @Test
     void testArabicSpeakers()
     {
@@ -59,6 +77,9 @@ public class LanguageIntegrationTest {
         assertEquals(233839238, languageSpeakers);
     }
 
+    /**
+     * After integration test
+     */
     @AfterAll
     static void afterAll() {
         app.disconnect();
