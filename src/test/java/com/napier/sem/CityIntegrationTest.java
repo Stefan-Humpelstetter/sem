@@ -2,6 +2,7 @@ package com.napier.sem;
 
 import com.napier.sem.Models.City;
 import com.napier.sem.Reports.CityReport;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +14,9 @@ public class CityIntegrationTest {
     private static App app;
     private static CityReport cityReport;
 
+    /**
+     * Integration test initialisation
+     */
     @BeforeAll
     static void init() {
         app = new App();
@@ -22,6 +26,9 @@ public class CityIntegrationTest {
         cityReport = new CityReport(app.getConnection());
     }
 
+    /**
+     * Integration test for the getTopPopulatedCities() method
+     */
     @Test
     void testGetTopPopulatedCities() {
         ArrayList<City> cities = cityReport.getTopPopulatedCities(5);
@@ -34,6 +41,9 @@ public class CityIntegrationTest {
         assertEquals("BRA", cities.get(2).countryCode);
     }
 
+    /**
+     * Integration test for the getTopPopulatedCitiesByRegion() method
+     */
     @Test
     void testGetTopPopulatedCitiesByRegion() {
         ArrayList<City> cities = cityReport.getTopPopulatedCitiesByRegion("British Islands",5);
@@ -45,6 +55,10 @@ public class CityIntegrationTest {
         assertEquals(1013000, cities.get(1).population);
         assertEquals("GBR", cities.get(2).countryCode);
     }
+
+    /**
+     * Integration test for the getCitiesByCountry() method
+     */
     @Test
     void testGetCitiesByCountry() {
         ArrayList<City> cities = cityReport.getCitiesByCountry("Austria");
@@ -56,6 +70,10 @@ public class CityIntegrationTest {
         assertEquals("AUT", cities.get(3).countryCode);
 
     }
+
+    /**
+     * Integration test for the getTopPopulatedCitiesInContinent() method
+     */
     @Test
     void testGetTopPopulatedCitiesInContinent() {
         ArrayList<City> cities = cityReport.getTopPopulatedCitiesInContinent(5,"South America");
@@ -70,6 +88,10 @@ public class CityIntegrationTest {
         assertEquals("ARG", cities.get(3).countryCode);
 
     }
+
+    /**
+     * Integration test for the getTopPopulatedCitiesInRegion() method
+     */
     @Test
     void testGetTopPopulatedCitiesInRegion() {
         ArrayList<City> cities = cityReport.getTopPopulatedCitiesInRegion(5,"Southern Europe");
@@ -84,6 +106,10 @@ public class CityIntegrationTest {
         assertEquals("ITA", cities.get(3).countryCode);
 
     }
+
+    /**
+     * Integration test for the getTopPopulatedCitiesInCountry() method
+     */
     @Test
     void testGetTopPopulatedCitiesInCountry() {
         ArrayList<City> cities = cityReport.getTopPopulatedCitiesInCountry(5,"Italy");
@@ -98,6 +124,9 @@ public class CityIntegrationTest {
         assertEquals("ITA", cities.get(3).countryCode);
     }
 
+    /**
+     * Integration test for the getTopNPopulatedCitiesInADistrict() method
+     */
     @Test
     void testGetTopNPopulatedCitiesInADistrict() {
         ArrayList<City> cities = cityReport.getTopNPopulatedCitiesInADistrict(3,"Noord-Brabant");
@@ -110,12 +139,13 @@ public class CityIntegrationTest {
         assertEquals(160398, cities.get(2).population);
         assertEquals(193238, cities.get(1).population);
         assertEquals("NLD", cities.get(2).countryCode);
-
     }
 
-
-
-
-
-
+    /**
+     * After integration test
+     */
+    @AfterAll
+    static void afterAll() {
+        app.disconnect();
+    }
 }
