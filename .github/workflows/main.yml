@@ -16,12 +16,12 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Unit Tests
-        run: |
-          mvn -Dtest=com.napier.sem.CapitalCityUnitTest test
-          mvn -Dtest=com.napier.sem.LanguageUnitTest test
-          mvn -Dtest=com.napier.sem.CountryUnitTest test
-          mvn -Dtest=com.napier.sem.PopulationUnitTest test
-          mvn -Dtest=com.napier.sem.CityUnitTest test
+      run: |
+        mvn -Dtest=com.napier.sem.CapitalCityUnitTest test
+        mvn -Dtest=com.napier.sem.LanguageUnitTest test
+        mvn -Dtest=com.napier.sem.CountryUnitTest test
+        mvn -Dtest=com.napier.sem.PopulationUnitTest test
+        mvn -Dtest=com.napier.sem.CityUnitTest test
 
   IntegrationTests:
     name: Integration Tests
@@ -36,10 +36,10 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Integration Tests
+      - name: Integration Tests and CodeCov
         run: |
           docker build -t database ./db 
-          docker run --name world -dp 33060:3306 database
+          docker run --name employees -dp 33060:3306 database
           mvn -Dtest=com.napier.sem.CapitalCityIntegrationTest test
           mvn -Dtest=com.napier.sem.CityIntegrationTest test
           mvn -Dtest=com.napier.sem.CountryIntegrationTest test
@@ -47,8 +47,14 @@ jobs:
           mvn -Dtest=com.napier.sem.PopulationIntegrationTest test
           docker stop world
           docker rm world
-          docker image rm database   
-
+          docker image rm database
+      - name: CodeCov
+        uses: codecov/codecov-action@v2
+        with:
+          # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          directory: ./target/site/jacoco
+          flags: Integration Tests # optional
+          verbose: true # optional (default = false)
   build:
     name: Build and Start Using docker-compose
     runs-on: ubuntu-20.04
