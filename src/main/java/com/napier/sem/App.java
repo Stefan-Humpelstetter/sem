@@ -117,6 +117,9 @@ public class App {
         // Print list of N top populated cities in a certain district
         cityReport.getTopNPopulatedCitiesInADistrict(3,"Noord-Brabant");
 
+        // Print list of cities in a continent ordered by population
+        cityReport.getCitiesInContinent("Oceania");
+
 
         System.out.println("\n\n--- Country Reports --- \n");
 

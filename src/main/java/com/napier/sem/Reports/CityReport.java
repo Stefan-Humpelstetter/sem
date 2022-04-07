@@ -277,5 +277,39 @@ public class CityReport extends AReport {
         return null;
     }
 
+    /**
+     * Prints cities in a continent sorted by population descending
+     * @param continent the continent to analyse
+     * @return list of cities in a continent
+     */
+    public ArrayList<City> getCitiesInContinent(String continent) {
+        try {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
 
+            // Create string for SQL statement
+            String strSelect = "SELECT * FROM city WHERE city.CountryCode IN (SELECT country.Code " +
+                    "FROM country WHERE country.Continent = '" + continent + "') ORDER BY Population DESC";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            // Create list to store the city information
+            ArrayList<City> cities = new ArrayList<City>();
+
+            // Print data
+            System.out.println("\nCities in " + continent + ":");
+            while (rset.next()) {
+                City city = new City(rset);
+                System.out.println(city.toString(false));
+                cities.add(city);
+            }
+
+            return cities;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get cities information");
+        }
+        return null;
+    }
 }

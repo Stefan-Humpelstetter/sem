@@ -142,6 +142,22 @@ public class CityIntegrationTest {
     }
 
     /**
+     * Integration test for the getCitiesInContinent() method
+     */
+    @Test
+    void testGetCitiesInContinent() {
+        ArrayList<City> cities = cityReport.getCitiesInContinent("Oceania");
+
+        // test if return list has correct size
+        assertEquals(55, cities.size());
+
+        // test to see if list has correct values
+        assertEquals("Sydney", cities.get(0).name);
+        assertEquals("Victoria", cities.get(1).district);
+        assertEquals(3494, cities.get(5).id);
+    }
+
+    /**
      * After integration test
      */
     @AfterAll
