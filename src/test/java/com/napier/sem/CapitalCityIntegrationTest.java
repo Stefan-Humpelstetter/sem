@@ -16,6 +16,9 @@ public class CapitalCityIntegrationTest {
     private static App app;
     private static CapitalCityReport capitalCityReport;
 
+    /**
+     * Integration test initialisation
+     */
     @BeforeAll
     static void init() {
         app = new App();
@@ -26,6 +29,9 @@ public class CapitalCityIntegrationTest {
         capitalCityReport = new CapitalCityReport(app.getConnection());
     }
 
+    /**
+     * Integration test for the getTopNPopulatedCapitalCitiesInAContinent() method
+     */
     @Test
     void testGetTopNPopulatedCapitalCitiesInAContinent() {
         ArrayList<City> cities = capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Africa, 5);
@@ -39,6 +45,9 @@ public class CapitalCityIntegrationTest {
         assertEquals("Alger", cities.get(4).district);
     }
 
+    /**
+     * Integration test for the getTopNPopulatedCapitalCitiesInTheWorldFromLargeToSmall() method
+     */
     @Test
     void testGetTopNPopulatedCapitalCitiesInTheWorldFromLargeToSmall() {
         ArrayList<City> cities = capitalCityReport.getTopNPopulatedCapitalCitiesInTheWorldFromLargeToSmall(3);
@@ -52,6 +61,9 @@ public class CapitalCityIntegrationTest {
         assertEquals("Distrito Federal", cities.get(2).district);
     }
 
+    /**
+     * Integration test for the getTopNPopulatedCapitalCitiesInAContinentFromLargestToSmallest() method
+     */
     @Test
     void testGetTopNPopulatedCapitalCitiesInAContinentFromLargestToSmallest() {
         ArrayList<City> cities = capitalCityReport.getTopNPopulatedCapitalCitiesInAContinentFromLargestToSmallest(Continent.Europe, 4);
@@ -66,6 +78,9 @@ public class CapitalCityIntegrationTest {
         assertEquals("Madrid", cities.get(3).name);
     }
 
+    /**
+     * Integration test for the getTopPopulatedCapitalCities() method
+     */
     @Test
     void testGetTopPopulatedCapitalCities() {
         ArrayList<City> cities = capitalCityReport.getTopPopulatedCapitalCities(5);
@@ -81,6 +96,9 @@ public class CapitalCityIntegrationTest {
         assertEquals(7980230, cities.get(4).population);
     }
 
+    /**
+     * Integration test for the getTopPopulatedCapitalCitiesForRegion() method
+     */
     @Test
     void testGetTopPopulatedCapitalCitiesForRegion() {
         ArrayList<City> cities = capitalCityReport.getTopPopulatedCapitalCitiesForRegion("Southern Europe", 3);
@@ -94,6 +112,9 @@ public class CapitalCityIntegrationTest {
         assertEquals("Central Serbia", cities.get(2).district);
     }
 
+    /**
+     * After integration test
+     */
     @AfterAll
     static void afterAll() {
         app.disconnect();

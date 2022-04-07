@@ -13,11 +13,17 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 public class CountryUnitTest {
     private static CountryReport countryReport;
 
+    /**
+     * Unit test initialisation
+     */
     @BeforeAll
     static void init() {
         countryReport = new CountryReport(null);
     }
 
+    /**
+     * Unit test for getTopPopulatedCountries() method
+     */
     @Test
     void testGetTopPopulatedCountries(){
         assertNull(countryReport.getTopPopulatedCountries(0));

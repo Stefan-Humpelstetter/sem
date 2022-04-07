@@ -12,6 +12,9 @@ public class PopulationIntegrationTest {
     private static PopulationReport populationReport;
     static App app;
 
+    /**
+     * Integration test initialisation
+     */
     @BeforeAll
     static void init()
     {
@@ -20,6 +23,9 @@ public class PopulationIntegrationTest {
         populationReport = new PopulationReport(app.getConnection());
     }
 
+    /**
+     * Integration test for the getWorldPopulation() method
+     */
     @Test
     void testWorldPopulation()
     {
@@ -27,13 +33,19 @@ public class PopulationIntegrationTest {
         assertEquals(6078749450L, populationReport.getWorldPopulation());
     }
 
+    /**
+     * Integration test for the getPopulationOfContinent() method
+     */
     @Test
-    void testContientPopulation()
+    void testContinentPopulation()
     {
         // Test population of North America
         assertEquals(482993000, populationReport.getPopulationOfContinent(Continent.North_America));
     }
 
+    /**
+     * Integration test for the getDistrictTotalPopulation() method
+     */
     @Test
     void testDistrictPopulation()
     {
@@ -41,6 +53,9 @@ public class PopulationIntegrationTest {
         assertEquals(1780000, populationReport.getDistrictTotalPopulation("Kabol"));
     }
 
+    /**
+     * Integration test for the getTotalPopulationCountry() method
+     */
     @Test
     void testCountryPopulation()
     {
@@ -48,6 +63,9 @@ public class PopulationIntegrationTest {
         assertEquals(57680000, populationReport.getTotalPopulationCountry("Italy"));
     }
 
+    /**
+     * Integration test for the getPopulationOfCity() method
+     */
     @Test
     void testCityPopulation()
     {
@@ -55,6 +73,9 @@ public class PopulationIntegrationTest {
         assertEquals(450180,populationReport.getPopulationOfCity("Edinburgh") );
     }
 
+    /**
+     * Integration test for the getPopulationOfRegion() method
+     */
     @Test
     void testRegionPopulation()
     {
@@ -62,6 +83,9 @@ public class PopulationIntegrationTest {
         assertEquals(38140000, populationReport.getPopulationOfRegion("Caribbean"));
     }
 
+    /**
+     * Integration test for the printPopulationReportForPeopleLivingInCitiesByContinent() method
+     */
     @Test
     void testPopulationByContinent()
     {
@@ -70,6 +94,9 @@ public class PopulationIntegrationTest {
         assertEquals(730074600, value);
     }
 
+    /**
+     * Integration test for the printPopulationReportForPeopleLivingInCitiesByContinent() method
+     */
     @Test
     void testPopulationInCityByContinent()
     {
@@ -78,6 +105,9 @@ public class PopulationIntegrationTest {
         assertEquals(241942813, value);
     }
 
+    /**
+     * Integration test for the printPopulationReportForPeopleLivingInCitiesByContinent() method
+     */
     @Test
     void testPopulationOutCityByContinent()
     {
@@ -86,6 +116,9 @@ public class PopulationIntegrationTest {
         assertEquals(488131787, value);
     }
 
+    /**
+     * Integration test for the getPopulationOfPeopleLivingInAndOutACityByRegion() method
+     */
     @Test
     void testPopulationByRegion()
     {
@@ -94,6 +127,9 @@ public class PopulationIntegrationTest {
         assertEquals(288771000, value);
     }
 
+    /**
+     * Integration test for the getPopulationOfPeopleLivingInAndOutACityByRegion() method
+     */
     @Test
     void testPopulationInCityByRegion()
     {
@@ -102,6 +138,9 @@ public class PopulationIntegrationTest {
         assertEquals(11067550, value);
     }
 
+    /**
+     * Integration test for the getPopulationOfPeopleLivingInAndOutACityByRegion() method
+     */
     @Test
     void testPopulationOutCityByRegion()
     {
@@ -110,6 +149,9 @@ public class PopulationIntegrationTest {
         assertEquals(277703450, value);
     }
 
+    /**
+     * Integration test for the getPopulationOfPeopleLivingInAndOutACityByCountry() method
+     */
     @Test
     void testPopulationByCountry()
     {
@@ -118,6 +160,9 @@ public class PopulationIntegrationTest {
         assertEquals(8190900, value);
     }
 
+    /**
+     * Integration test for the getPopulationOfPeopleLivingInAndOutACityByCountry() method
+     */
     @Test
     void testPopulationInCityByCountry()
     {
@@ -127,6 +172,9 @@ public class PopulationIntegrationTest {
         assertEquals(2696915, value);
     }
 
+    /**
+     * Integration test for the getPopulationOfPeopleLivingInAndOutACityByCountry() method
+     */
     @Test
     void testPopulationOutCityByCountry()
     {
@@ -136,6 +184,9 @@ public class PopulationIntegrationTest {
         assertEquals(5493985, value);
     }
 
+    /**
+     * After integration test
+     */
     @AfterAll
     static void afterAll() {
         app.disconnect();
