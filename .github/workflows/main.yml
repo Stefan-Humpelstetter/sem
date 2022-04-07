@@ -16,12 +16,12 @@ jobs:
           java-version: '11'
           distribution: 'adopt'
       - name: Unit Tests
-      run: |
-        mvn -Dtest=com.napier.sem.CapitalCityUnitTest test
-        mvn -Dtest=com.napier.sem.LanguageUnitTest test
-        mvn -Dtest=com.napier.sem.CountryUnitTest test
-        mvn -Dtest=com.napier.sem.PopulationUnitTest test
-        mvn -Dtest=com.napier.sem.CityUnitTest test
+        run: |
+          mvn -Dtest=com.napier.sem.CapitalCityUnitTest test
+          mvn -Dtest=com.napier.sem.LanguageUnitTest test
+          mvn -Dtest=com.napier.sem.CountryUnitTest test
+          mvn -Dtest=com.napier.sem.PopulationUnitTest test
+          mvn -Dtest=com.napier.sem.CityUnitTest test
 
   IntegrationTests:
     name: Integration Tests
