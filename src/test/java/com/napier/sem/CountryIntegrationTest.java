@@ -46,6 +46,23 @@ public class CountryIntegrationTest {
     }
 
     /**
+     * Integration test for the getTopPopulatedCountriesInARegion() method
+     */
+    @Test
+    void testGetTopPopulatedCountriesInARegion(){
+        ArrayList<Country> countries = countryReport.getTopPopulatedCountriesInARegion("Central America", 3);
+
+        // test if return list has correct size
+        assertEquals(3, countries.size());
+
+        // test to see if list has correct values
+        assertEquals("Mexico", countries.get(0).name);
+        assertEquals(11385000, countries.get(1).population);
+        assertEquals("Honduras", countries.get(2).name);
+        assertEquals("Central America", countries.get(2).region);
+    }
+
+    /**
      * After integration test
      */
     @AfterAll

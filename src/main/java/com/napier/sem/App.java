@@ -36,6 +36,7 @@ public class App {
         CityReport cityReport = new CityReport(a.con);
         LanguageReport languageReport = new LanguageReport(a.con);
 
+
         System.out.println("\n\n--- Capital City Reports ---");
 
         // Print top n populated capital cities
@@ -55,7 +56,6 @@ public class App {
 
         // Print list of most populated capital cities in the world from large to small(population) (limited to 5 results for better visibility of the results)
         capitalCityReport.getTopNPopulatedCapitalCitiesInTheWorldFromLargeToSmall(5);
-
 
 
         System.out.println("\n\n--- Population Reports ---");
@@ -93,6 +93,7 @@ public class App {
         // Print language report for Chinese, English, Hindi and Spanish
         languageReport.getLanguagesAmountAndPercentage();
 
+
         System.out.println("\n\n--- City Reports --- \n");
 
         // Print list of top populated cities in British Islands by Region - Restricted to 5 to limit spam
@@ -116,10 +117,14 @@ public class App {
         // Print list of N top populated cities in a certain district
         cityReport.getTopNPopulatedCitiesInADistrict(3,"Noord-Brabant");
 
+
         System.out.println("\n\n--- Country Reports --- \n");
 
         // Print list of N top populated countries in the world
         countryReport.getTopPopulatedCountries(4);
+
+        // Print list of N top populated countries in a region
+        countryReport.getTopPopulatedCountriesInARegion("Central America", 3);
 
         // Disconnect from database
         a.disconnect();
