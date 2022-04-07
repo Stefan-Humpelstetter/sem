@@ -28,4 +28,10 @@ public class CountryUnitTest {
     void testGetTopPopulatedCountries(){
         assertNull(countryReport.getTopPopulatedCountries(0));
     }
+
+    /**
+     * Unit test for getTopPopulatedCountriesInARegion() method
+     */
+    @Test
+    void testGetTopPopulatedCountriesInARegion(){ assertNull(countryReport.getTopPopulatedCountriesInARegion(null, 0)); }
 }

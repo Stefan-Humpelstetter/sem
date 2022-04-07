@@ -54,4 +54,40 @@ public class CountryReport extends AReport {
         }
         return null;
     }
+
+    /**
+     * Prints the n most populated countries in a specific region
+     * @param region the specified region
+     * @param n the number of countries to select
+     * @return list of n most populated countries in a region
+     */
+    public ArrayList<Country> getTopPopulatedCountriesInARegion(String region, int n) {
+        try {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+
+            // Create string for SQL statement
+            String strSelect = "SELECT * FROM country WHERE Region = '" + region + "' ORDER BY Population DESC LIMIT " + n + ";";
+
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            ArrayList<Country> countries = new ArrayList<Country>();
+
+            // Print data
+            System.out.println("\n" + n + " most populated countries in the " + region + " region: ");
+            while (rset.next()) {
+                Country country = new Country(rset);
+                countries.add(country);
+                System.out.println(country.toString());
+            }
+
+            return countries;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country information");
+        }
+        return null;
+    }
 }
