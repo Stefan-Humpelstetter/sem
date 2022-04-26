@@ -36,7 +36,7 @@ public class CityReport extends AReport {
             ArrayList<City> cities = new ArrayList<City>();
 
             // Print data
-            System.out.println("\n" + (n > 0 ? n : "All") + " most populated cities in the world: ");
+            System.out.println("\n" + (n > 0 ? n + " most" : "All") + " populated cities in the world: ");
             while (rset.next()) {
                 City city = new City(rset);
                 cities.add(city);
@@ -79,7 +79,7 @@ public class CityReport extends AReport {
                 cities.add(new City(rset));
 
             // Print data
-            System.out.println("\n" + (n > 0 ? n : "All") + " most populated cities of the region " + region);
+            System.out.println("\n" + (n > 0 ? n + " most" : "All") + " populated cities of the region " + region);
             for (City city : cities) {
                 System.out.println(city.toString(false));
             }
