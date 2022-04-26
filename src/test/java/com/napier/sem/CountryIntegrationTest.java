@@ -1,7 +1,6 @@
 package com.napier.sem;
 
 import com.napier.sem.Models.Country;
-import com.napier.sem.Reports.CapitalCityReport;
 import com.napier.sem.Reports.CountryReport;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -60,6 +59,9 @@ public class CountryIntegrationTest {
         assertEquals(11385000, countries.get(1).population);
         assertEquals("Honduras", countries.get(2).name);
         assertEquals("Central America", countries.get(2).region);
+
+        ArrayList<Country> countries2 = countryReport.getTopPopulatedCountriesInARegion("Southern Europe", 0);
+        assertEquals("Italy", countries2.get(0).name);
     }
 
     /**

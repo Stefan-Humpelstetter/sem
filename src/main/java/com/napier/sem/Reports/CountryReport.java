@@ -1,6 +1,5 @@
 package com.napier.sem.Reports;
 
-import com.napier.sem.Models.City;
 import com.napier.sem.Models.Country;
 
 import java.sql.Connection;
@@ -67,7 +66,7 @@ public class CountryReport extends AReport {
             Statement stmt = connection.createStatement();
 
             // Create string for SQL statement
-            String strSelect = "SELECT * FROM country WHERE Region = '" + region + "' ORDER BY Population DESC LIMIT " + n + ";";
+            String strSelect = "SELECT * FROM country WHERE Region = '" + region + "' ORDER BY Population DESC" + (n > 0 ? " LIMIT " + n : "");
 
 
             // Execute SQL statement
@@ -76,7 +75,8 @@ public class CountryReport extends AReport {
             ArrayList<Country> countries = new ArrayList<Country>();
 
             // Print data
-            System.out.println("\n" + n + " most populated countries in the " + region + " region: ");
+
+            System.out.println("\n" + (n > 0 ? +n : "All")  + " most populated countries in the " + region + " region: ");
             while (rset.next()) {
                 Country country = new Country(rset);
                 countries.add(country);
