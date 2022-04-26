@@ -1,6 +1,5 @@
 package com.napier.sem.Reports;
 
-import com.napier.sem.Models.City;
 import com.napier.sem.Models.Country;
 
 import java.sql.Connection;
@@ -58,7 +57,7 @@ public class CountryReport extends AReport {
     /**
      * Prints the n most populated countries in a specific region
      * @param region the specified region
-     * @param n the number of countries to select
+     * @param n the number of countries to select, if n = 0 then all countries selected
      * @return list of n most populated countries in a region
      */
     public ArrayList<Country> getTopPopulatedCountriesInARegion(String region, int n) {
@@ -67,7 +66,7 @@ public class CountryReport extends AReport {
             Statement stmt = connection.createStatement();
 
             // Create string for SQL statement
-            String strSelect = "SELECT * FROM country WHERE Region = '" + region + "' ORDER BY Population DESC LIMIT " + n + ";";
+            String strSelect = "SELECT * FROM country WHERE Region = '" + region + "' ORDER BY Population DESC" + (n > 0 ? " LIMIT " + n : "");
 
 
             // Execute SQL statement
@@ -76,7 +75,45 @@ public class CountryReport extends AReport {
             ArrayList<Country> countries = new ArrayList<Country>();
 
             // Print data
-            System.out.println("\n" + n + " most populated countries in the " + region + " region: ");
+
+            System.out.println("\n" + (n > 0 ? +n : "All")  + " most populated countries in the " + region + " region: ");
+            while (rset.next()) {
+                Country country = new Country(rset);
+                countries.add(country);
+                System.out.println(country.toString());
+            }
+
+            return countries;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country information");
+        }
+        return null;
+    }
+
+    /**
+     * Prints the n most populated countries in a specific region
+     * @param continent the specified region
+     * @param n the number of countries to select, if n = 0 then all countries selected
+     * @return list of n most populated countries in a region
+     */
+    public ArrayList<Country> getTopPopulatedCountriesInAContinent(String continent, int n) {
+        try {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+
+            // Create string for SQL statement
+            String strSelect = "SELECT * FROM country WHERE Continent = '" + continent + "' ORDER BY Population DESC" + (n > 0 ? " LIMIT " + n : "");
+
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            ArrayList<Country> countries = new ArrayList<Country>();
+
+            // Print data
+
+            System.out.println("\n" + (n > 0 ? +n : "All")  + " most populated countries in the " + continent + " continent: ");
             while (rset.next()) {
                 Country country = new Country(rset);
                 countries.add(country);

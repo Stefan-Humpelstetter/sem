@@ -129,6 +129,15 @@ public class App {
         // Print list of N top populated countries in a region
         countryReport.getTopPopulatedCountriesInARegion("Central America", 3);
 
+        // Print list of all top populated countries in a region
+        countryReport.getTopPopulatedCountriesInARegion("Southern Europe", 0);
+
+        // Print list of N top populated countries in a continent
+        countryReport.getTopPopulatedCountriesInAContinent("Europe", 3);
+
+        // Print list of all top populated countries in a continent
+        countryReport.getTopPopulatedCountriesInAContinent("Oceania", 0);
+
         // Disconnect from database
         a.disconnect();
     }
