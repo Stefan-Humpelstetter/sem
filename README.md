@@ -44,7 +44,7 @@
 | 29  | The population of a country.| Yes | image |
 | 30  | The population of a district.| Yes | image |
 | 31  | The population of a city.| Yes | image |
-| 32  | number of people who speak the following the following languages from greatest number to smallest, including the percentage of the world population| Yes | image |
+| 32  | number of people who speak the following the following languages from greatest number to smallest, including the percentage of the world population| Yes | ![image](https://user-images.githubusercontent.com/70952108/165294886-f1cd2281-f952-43f9-a9dc-af0a64039368.png) |
 
 
 
