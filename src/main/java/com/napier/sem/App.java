@@ -39,6 +39,9 @@ public class App {
 
         System.out.println("\n\n--- Capital City Reports ---");
 
+        // Print all populated capital cities
+        capitalCityReport.getTopPopulatedCapitalCities(0);
+
         // Print top n populated capital cities
         capitalCityReport.getTopPopulatedCapitalCities(3);
 
@@ -48,6 +51,9 @@ public class App {
         // Print all most populated capital cities of region 'Eastern Africa' sorted by population
         capitalCityReport.getTopPopulatedCapitalCitiesForRegion("Eastern Africa", 0);
 
+        // Print all populated capital cities in a given continent
+        capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Europe, 4);
+
         // Print the top N populated capital cities in a given continent
         capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Oceania, 4);
 
@@ -56,6 +62,8 @@ public class App {
 
         // Print list of most populated capital cities in the world from large to small(population) (limited to 5 results for better visibility of the results)
         capitalCityReport.getTopNPopulatedCapitalCitiesInTheWorldFromLargeToSmall(5);
+
+
 
 
         System.out.println("\n\n--- Population Reports ---");

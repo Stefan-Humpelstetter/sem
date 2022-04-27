@@ -134,7 +134,7 @@ public class CapitalCityReport extends AReport {
                 cities.add(new City(rset));
 
             // Print data
-            System.out.println("\n" + n + " Most populated capital cities in continent in " + continent.toString() + ":");
+            System.out.println("\n" + (n > 0? n + " most" : "All") + " populated capital cities in continent in " + continent.toString() + ":");
             for (City city : cities){
                 System.out.println(city.toString(true));
             };
@@ -164,8 +164,7 @@ public class CapitalCityReport extends AReport {
                             "FROM city JOIN country ON city.CountryCode = country.Code " +
                             "WHERE  city.ID IN (SELECT Capital FROM country) " +
                             "AND country.Continent= '"+continent.toString()+"' " +
-                            "ORDER BY city.Population DESC " +
-                            "LIMIT " + n;
+                            "ORDER BY city.Population DESC " + (n > 0? "LIMIT " + n: "");
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -176,7 +175,7 @@ public class CapitalCityReport extends AReport {
                 cities.add(new City(rset));
 
             // Print data
-            System.out.println("\n Most populated capital cities in " + continent.toString() + " from largest to smallest:");
+            System.out.println("\n" + (n > 0? n + " most" : "All") + " populated capital cities in " + continent.toString() + " from largest to smallest:");
             for (City city : cities){
                 System.out.println(city.toString(true));
             };
@@ -205,8 +204,8 @@ public class CapitalCityReport extends AReport {
                     "SELECT *" +
                     "FROM city JOIN country ON city.CountryCode = country.Code " +
                     "WHERE  city.ID IN (SELECT Capital FROM country) " +
-                    "ORDER BY city.Population DESC " +
-                    "LIMIT "+ n;
+                    "ORDER BY city.Population DESC " + (n > 0? "LIMIT " + n: "");
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
 
