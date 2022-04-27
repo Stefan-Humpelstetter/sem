@@ -47,8 +47,7 @@ public class PopulationReport extends AReport{
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get world population details");
-        }
+            System.out.println("Failed to get world population details");  }
 
         return 0;
     }
@@ -80,8 +79,7 @@ public class PopulationReport extends AReport{
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get continent population details");
-        }
+            System.out.println("Failed to get continent population details"); }
         return 0;
     }
 
@@ -111,8 +109,7 @@ public class PopulationReport extends AReport{
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get region population details");
-        }
+            System.out.println("Failed to get region population details"); }
         return 0;
     }
 
@@ -143,8 +140,7 @@ public class PopulationReport extends AReport{
         catch (Exception e)
         {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get city population details");
-        }
+            System.out.println("Failed to get city population details"); }
         return 0;
     }
 
@@ -179,8 +175,7 @@ public class PopulationReport extends AReport{
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get district population details");
-        }
+            System.out.println("Failed to get district population details"); }
         return 0;
     }
 
@@ -214,8 +209,7 @@ public class PopulationReport extends AReport{
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            System.out.println("Failed to get country population details");
-        }
+            System.out.println("Failed to get country population details"); }
         return 0;
     }
 
