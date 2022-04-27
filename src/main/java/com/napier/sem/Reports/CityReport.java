@@ -213,7 +213,7 @@ public class CityReport extends AReport {
             Statement stmt = connection.createStatement();
 
             // Create string for SQL statement
-            String strSelect = "SELECT * FROM city WHERE city.CountryCode = (SELECT country.Code FROM country WHERE country.Name = '" + country + "') ORDER BY city.Population DESC LIMIT " + n + ";";
+            String strSelect = "SELECT * FROM city WHERE city.CountryCode = (SELECT country.Code FROM country WHERE country.Name = '" + country + "') ORDER BY city.Population DESC "+(n > 0 ? "LIMIT " + n : "");
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -221,7 +221,7 @@ public class CityReport extends AReport {
             ArrayList<City> cities = new ArrayList<City>();
 
             // Print data
-            System.out.println("\n" + n + " most populated cities in " + country + ": ");
+            System.out.println("\n" + (n > 0 ? n + " most" : "All") + " most populated cities in " + country + ": ");
             while (rset.next()) {
                 City city = new City(rset);
                 cities.add(city);
