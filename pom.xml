@@ -96,11 +96,6 @@
                 </configuration>
                 <executions>
                     <execution>
-                        <goals>
-                            <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
                         <id>report</id>
                         <phase>test</phase>
                         <goals>
