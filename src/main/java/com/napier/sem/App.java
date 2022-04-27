@@ -146,6 +146,9 @@ public class App {
         // Print list of all top populated countries in a continent
         countryReport.getTopPopulatedCountriesInAContinent("Oceania", 0);
 
+        // Print top N most populated countries in the world
+        countryReport.getTopNPopulatedCountriesWorldwide(3);
+
         // Disconnect from database
         a.disconnect();
     }

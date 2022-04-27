@@ -36,4 +36,9 @@ public class CountryUnitTest {
      */
     @Test
     void testGetTopPopulatedCountriesInAContinent(){ assertNull(countryReport.getTopPopulatedCountriesInAContinent(null, 0)); }
+    /**
+     * Unit test for getTopPopulatedCountriesInAContinent(String continent, int n) method
+     */
+    @Test
+    void testGetTopNPopulatedCountriesWorldwide(){ assertNull(countryReport.getTopNPopulatedCountriesWorldwide(0)); }
 }
