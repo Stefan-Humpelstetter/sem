@@ -29,9 +29,6 @@ public enum Continent {
      * returns the display name
      * @return displayName
      */
-    public String displayName() {
-        return displayName;
-    }
 
     /**
      * Converts the enum to a string

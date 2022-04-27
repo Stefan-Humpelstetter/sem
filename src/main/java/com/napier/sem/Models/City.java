@@ -23,8 +23,7 @@ public class City extends AModel {
      */
     @Override
     protected void construct() throws SQLException {
-        if (rset.isBeforeFirst())
-            rset.next();
+        if (rset.isBeforeFirst()) rset.next();
 
         this.id = rset.getInt("ID");
         this.name = rset.getString("Name");
