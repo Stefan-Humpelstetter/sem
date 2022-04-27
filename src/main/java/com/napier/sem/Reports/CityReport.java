@@ -36,7 +36,7 @@ public class CityReport extends AReport {
             ArrayList<City> cities = new ArrayList<City>();
 
             // Print data
-            System.out.println("\n" + (n > 0 ? n : "All") + " most populated cities in the world: ");
+            System.out.println("\n" + (n > 0 ? n + " most" : "All") + " populated cities in the world: ");
             while (rset.next()) {
                 City city = new City(rset);
                 cities.add(city);
@@ -79,7 +79,7 @@ public class CityReport extends AReport {
                 cities.add(new City(rset));
 
             // Print data
-            System.out.println("\n" + (n > 0 ? n : "All") + " most populated cities of the region " + region);
+            System.out.println("\n" + (n > 0 ? n + " most" : "All") + " populated cities of the region " + region);
             for (City city : cities) {
                 System.out.println(city.toString(false));
             }
@@ -213,7 +213,7 @@ public class CityReport extends AReport {
             Statement stmt = connection.createStatement();
 
             // Create string for SQL statement
-            String strSelect = "SELECT * FROM city WHERE city.CountryCode = (SELECT country.Code FROM country WHERE country.Name = '" + country + "') ORDER BY city.Population DESC LIMIT " + n + ";";
+            String strSelect = "SELECT * FROM city WHERE city.CountryCode = (SELECT country.Code FROM country WHERE country.Name = '" + country + "') ORDER BY city.Population DESC "+(n > 0 ? "LIMIT " + n : "");
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -221,7 +221,7 @@ public class CityReport extends AReport {
             ArrayList<City> cities = new ArrayList<City>();
 
             // Print data
-            System.out.println("\n" + n + " most populated cities in " + country + ": ");
+            System.out.println("\n" + (n > 0 ? n + " most" : "All") + " most populated cities in " + country + ": ");
             while (rset.next()) {
                 City city = new City(rset);
                 cities.add(city);
@@ -252,8 +252,7 @@ public class CityReport extends AReport {
             String strSelect = "SELECT * " +
                     "FROM city " +
                     "WHERE District ='" + district +"' "+
-                    "ORDER BY population DESC " +
-                    "LIMIT " + n ;
+                    "ORDER BY population DESC " + (n > 0 ? "LIMIT " + n : "");
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -261,7 +260,7 @@ public class CityReport extends AReport {
             ArrayList<City> cities = new ArrayList<City>();
 
             // Print data
-            System.out.println("\n Top " + n + " populated cities in the " + district + " district: ");
+            System.out.println("\n" + (n > 0 ? n + " most" : "All") + " populated cities in the " + district + " district: ");
             while (rset.next()) {
                 City city = new City(rset);
                 cities.add(city);

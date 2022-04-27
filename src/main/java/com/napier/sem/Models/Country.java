@@ -24,8 +24,7 @@ public class Country extends AModel {
      */
     @Override
     protected void construct() throws SQLException {
-        if (rset.isBeforeFirst())
-            rset.next();
+        if (rset.isBeforeFirst()) rset.next();
 
         this.code = rset.getString("Code");
         this.name = rset.getString("Name");
@@ -52,8 +51,7 @@ public class Country extends AModel {
     private Continent stringToContinent(String continent) {
         if (Objects.equals(continent, "North America"))
             return Continent.North_America;
-        if (Objects.equals(continent, "South America"))
-            return Continent.South_America;
+        if (Objects.equals(continent, "South America")) return Continent.South_America;
 
         return Continent.valueOf(continent);
     }

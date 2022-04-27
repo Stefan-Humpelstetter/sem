@@ -96,11 +96,11 @@ public class App {
 
         System.out.println("\n\n--- City Reports --- \n");
 
-        // Print list of top populated cities in British Islands by Region - Restricted to 5 to limit spam
-        cityReport.getTopPopulatedCitiesByRegion("British Islands", 5);
+        // Print list of top populated cities in British Islands by Region - Unestricted from 5 for screenshot output
+        cityReport.getTopPopulatedCitiesByRegion("British Islands", 0);
 
-        // Print list of top populated cities in the World - Restricted to 5 to limit spam
-        cityReport.getTopPopulatedCities(5);
+        // Print list of top populated cities in the World - Unrestricted from 5 for screenshot output
+        cityReport.getTopPopulatedCities(0);
 
         // Print list of the cities of Austria ordered by population from largest to smallest
         cityReport.getCitiesByCountry("Austria");

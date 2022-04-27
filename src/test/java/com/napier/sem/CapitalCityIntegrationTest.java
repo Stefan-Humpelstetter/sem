@@ -102,12 +102,14 @@ public class CapitalCityIntegrationTest {
     @Test
     void testGetTopPopulatedCapitalCitiesForRegion() {
         ArrayList<City> cities = capitalCityReport.getTopPopulatedCapitalCitiesForRegion("Southern Europe", 3);
+        ArrayList<City> cities2 = capitalCityReport.getTopPopulatedCapitalCitiesForRegion("Southern Europe", 0);
 
         // test if return list has correct size
         assertEquals(3, cities.size());
 
         // test to see if list has correct values
         assertEquals("Madrid", cities.get(0).name);
+        assertEquals("Madrid", cities2.get(0).name);
         assertEquals(2643581, cities.get(1).population);
         assertEquals("Central Serbia", cities.get(2).district);
     }

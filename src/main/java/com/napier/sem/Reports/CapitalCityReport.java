@@ -23,7 +23,7 @@ public class CapitalCityReport extends AReport {
 
     /**
      * Prints the n top populated capital cities
-     * @param n
+     * @param n number
      * @return list of top n populated capital cities
      */
     public ArrayList<City> getTopPopulatedCapitalCities(int n){
@@ -134,7 +134,7 @@ public class CapitalCityReport extends AReport {
                 cities.add(new City(rset));
 
             // Print data
-            System.out.println("\n" + n + " Most populated capital cities in countries in " + continent.toString() + ":");
+            System.out.println("\n" + n + " Most populated capital cities in continent in " + continent.toString() + ":");
             for (City city : cities){
                 System.out.println(city.toString(true));
             };
