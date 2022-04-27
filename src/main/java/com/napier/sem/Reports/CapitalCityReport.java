@@ -37,7 +37,7 @@ public class CapitalCityReport extends AReport {
                     "SELECT * "
                             + "FROM city JOIN country ON city.CountryCode = country.Code "
                             + "WHERE city.ID IN (SELECT Capital FROM country) "
-                            + "ORDER BY city.Population DESC"
+                            + "ORDER BY city.Population DESC "
                             + (n > 0? "LIMIT " + n: "");
 
             // Execute SQL statement
