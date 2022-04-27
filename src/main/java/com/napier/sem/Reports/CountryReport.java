@@ -127,6 +127,12 @@ public class CountryReport extends AReport {
         }
         return null;
     }
+
+    /**
+     * Prints the n most populated countries in the world
+     * @param n the number of countries to select, if n = 0 then all countries selected
+     * @return list of n most populated countries worldwide
+     */
     public ArrayList<Country> getTopNPopulatedCountriesWorldwide( int n) {
         try {
             // Create an SQL statement

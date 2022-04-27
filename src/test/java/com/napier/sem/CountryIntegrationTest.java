@@ -84,6 +84,22 @@ public class CountryIntegrationTest {
         assertEquals("Australia", countries2.get(0).name);
     }
 
+    /**
+     * Integration test for the GetTopNPopulatedCountriesWorldwide( int n) method
+     */
+    @Test
+    void testGetTopNPopulatedCountriesWorldwide(){
+        ArrayList<Country> countries = countryReport.getTopNPopulatedCountriesWorldwide(3);
+
+        // test if return list has correct size
+        assertEquals(3, countries.size());
+
+        // test to see if list has correct values
+        assertEquals("China",countries.get(0).name);
+        assertEquals("India",countries.get(1).name);
+        assertEquals(278357000,countries.get(2).population);
+
+    }
 
 
     /**
