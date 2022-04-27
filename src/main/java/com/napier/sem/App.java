@@ -52,7 +52,7 @@ public class App {
         capitalCityReport.getTopPopulatedCapitalCitiesForRegion("Eastern Africa", 0);
 
         // Print all populated capital cities in a given continent
-        capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Europe, 4);
+        capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Europe, 0);
 
         // Print the top N populated capital cities in a given continent
         capitalCityReport.getTopNPopulatedCapitalCitiesInAContinent(Continent.Oceania, 4);
