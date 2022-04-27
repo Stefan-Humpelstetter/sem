@@ -32,11 +32,13 @@ public class CityIntegrationTest {
     @Test
     void testGetTopPopulatedCities() {
         ArrayList<City> cities = cityReport.getTopPopulatedCities(5);
+        ArrayList<City> cities2 = cityReport.getTopPopulatedCities(0);
         // test if return list has correct size
         assertEquals(5, cities.size());
 
         // test to see if list has correct values
         assertEquals("Mumbai (Bombay)", cities.get(0).name);
+        assertEquals("Mumbai (Bombay)", cities2.get(0).name);
         assertEquals(9981619, cities.get(1).population);
         assertEquals("BRA", cities.get(2).countryCode);
     }
@@ -47,11 +49,13 @@ public class CityIntegrationTest {
     @Test
     void testGetTopPopulatedCitiesByRegion() {
         ArrayList<City> cities = cityReport.getTopPopulatedCitiesByRegion("British Islands",5);
+        ArrayList<City> cities2 = cityReport.getTopPopulatedCitiesByRegion("British Islands",0);
         // test if return list has correct size
         assertEquals(5, cities.size());
 
         // test to see if list has correct values
         assertEquals("London", cities.get(0).name);
+        assertEquals("London", cities2.get(0).name);
         assertEquals(1013000, cities.get(1).population);
         assertEquals("GBR", cities.get(2).countryCode);
     }

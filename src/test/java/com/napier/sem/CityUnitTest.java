@@ -64,4 +64,9 @@ public class CityUnitTest {
         cityReport.getTopNPopulatedCitiesInADistrict(0,null);
     }
 
+    @Test
+    void testGetTopNPopulatedCitiesInAContinent() {
+        cityReport.getTopPopulatedCitiesInContinent(0, null);
+    }
+
 }
