@@ -29,8 +29,8 @@
 | 14  | The top N populated cities in a region where N is provided by the user.| Yes | ![image](https://user-images.githubusercontent.com/70952108/165297439-11844aa3-5923-49c5-a05d-2e74971cbeeb.png) |
 | 15  | The top N populated cities in a country where N is provided by the user.| Yes | ![image](https://user-images.githubusercontent.com/70952108/165297504-e071fb0f-00c0-45f6-87e4-88e20515b8c4.png) |
 | 16  | The top N populated cities in a district where N is provided by the user.| Yes | ![image](https://user-images.githubusercontent.com/70952108/165297580-49b22da6-0522-4c8c-87ca-8c858e8eb41b.png) |
-| 17  | All the capital cities in the world organised by largest population to smallest.| Yes | image |
-| 18  | All the capital cities in a continent organised by largest population to smallest.| Yes | image |
+| 17  | All the capital cities in the world organised by largest population to smallest.| Yes | ![image](https://user-images.githubusercontent.com/70952108/165555238-334f0d9c-e5b6-46e1-8c2d-693ab1b801c0.png) |
+| 18  | All the capital cities in a continent organised by largest population to smallest.| Yes | ![image](https://user-images.githubusercontent.com/70952108/165555519-2f8e0279-182c-483b-b592-a305dac46382.png) |
 | 19  | All the capital cities in a region organised by largest to smallest.| Yes | ![image](https://user-images.githubusercontent.com/70952108/165298424-6618e7d1-f94b-48f1-a59d-3a881714247c.png) |
 | 20  | The top N populated capital cities in the world where N is provided by the user.| Yes | ![image](https://user-images.githubusercontent.com/70952108/165297749-349ef543-3969-499d-b3f8-bc7422a10f4d.png) |
 | 21  | The top N populated capital cities in a continent where N is provided by the user.| Yes | ![image](https://user-images.githubusercontent.com/70952108/165308309-853359a5-4ca7-43e3-8b0b-24b9f5025c5c.png) |
