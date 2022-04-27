@@ -127,4 +127,37 @@ public class CountryReport extends AReport {
         }
         return null;
     }
+    public ArrayList<Country> getTopNPopulatedCountriesWorldwide( int n) {
+        try {
+            // Create an SQL statement
+            Statement stmt = connection.createStatement();
+
+            // Create string for SQL statement
+            String strSelect = "SELECT * " +
+                    "FROM country " +
+                    "ORDER BY population DESC " +
+                    (n > 0 ? " LIMIT " + n : "") ;
+
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+
+            ArrayList<Country> countries = new ArrayList<Country>();
+
+            // Print data
+
+            System.out.println("\n" + (n > 0 ? +n : "Top")  + " most populated countries in the world :");
+            while (rset.next()) {
+                Country country = new Country(rset);
+                countries.add(country);
+                System.out.println(country.toString());
+            }
+
+            return countries;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country information");
+        }
+        return null;
+    }
 }
