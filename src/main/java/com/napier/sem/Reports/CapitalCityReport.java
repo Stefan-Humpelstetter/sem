@@ -37,8 +37,8 @@ public class CapitalCityReport extends AReport {
                     "SELECT * "
                             + "FROM city JOIN country ON city.CountryCode = country.Code "
                             + "WHERE city.ID IN (SELECT Capital FROM country) "
-                            + "ORDER BY city.Population DESC "
-                            + "LIMIT " + n;
+                            + "ORDER BY city.Population DESC"
+                            + (n > 0? "LIMIT " + n: "");
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
@@ -51,7 +51,7 @@ public class CapitalCityReport extends AReport {
             }
 
             // Print data
-            System.out.println("\nTop " + n + " populated capitals:");
+            System.out.println("\n Top " + (n > 0? n : "All") + " populated capitals:");
             for (City city : cities){
                 System.out.println(city.toString(true));
             };
@@ -123,7 +123,7 @@ public class CapitalCityReport extends AReport {
                             "WHERE  city.ID IN (SELECT Capital FROM country) " +
                             "AND country.Continent= '"+continent.toString()+"' " +
                             "ORDER BY city.Population DESC " +
-                            "LIMIT " + n;
+                            (n > 0? "LIMIT " + n: "");
 
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
