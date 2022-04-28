@@ -3,7 +3,7 @@
 
 - Develop Build Status ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Stefan-Humpelstetter/sem/Sem/develop?style=flat-square)
 
-- Code Coverage Badge [![codecov](https://codecov.io/gh/Stefan-Humpelstetter/sem/branch/master/graph/badge.svg?token=C56VZEBHMV)](https://codecov.io/gh/Stefan-Humpelstetter/sem)
+- Code Coverage Badge [![codecov](https://codecov.io/gh/Stefan-Humpelstetter/sem/branch/develop/graph/badge.svg?token=C56VZEBHMV)](https://codecov.io/gh/Stefan-Humpelstetter/sem)
 
 - Release [![Releases](https://img.shields.io/github/release/Stefan-Humpelstetter/sem/all.svg?style=flat-square)](https://github.com/Stefan-Humpelstetter/sem/releases) 
 
